@@ -147,7 +147,7 @@
       <hr class="mt-5 mb-3">
 
       <div class="row ">
-        <h6 class="text-center mb-3"><b>OTHER DETAILS</b></h6>
+        <h6 class="text-center mb-3"><b>CONTACT PERSON</b></h6>
       </div>
 
       <div class="row mb-3">

@@ -28,16 +28,16 @@
 
     <div class="mr-auto">
       <h6 class="text-center mb-3"><b>PERSONAL INFORMATION</b></h6>
+      <?php $attributes = array('id' => 'opd_form', 'class' => 'form-horizontal user'); ?>
+      <?php echo form_open('admissioncontrol/edit_opd_form/' . $pr_id->pr_id . '', $attributes); ?>
     </div>
-    
-    <?php $attributes = array('id' => 'opd_form', 'class' => 'form-horizontal user'); ?>
-    <?php echo form_open('admissioncontrol/edit_opd_form/' . $pr_id->pr_id . '', $attributes); ?>
 
     <div class="m-2">
       <?php echo form_label('Date'); ?>
     </div>
 
     <div class="">
+      
       <input type="date" class="form-control  <?= (form_error('date') == "" ? '' : 'is-invalid') ?>" name="date" value="<?php echo $pr_id->pr_date ?>">
       <div class="text-danger text-center"><?php echo form_error('date'); ?></div>
     </div>
@@ -163,7 +163,7 @@
       <hr class="mt-5 mb-3">
 
       <div class="row ">
-        <h6 class="text-center mb-3"><b>OTHER DETAILS</b></h6>
+        <h6 class="text-center mb-3"><b>CONTACT PERSON</b></h6>
       </div>
 
       <div class="row mb-3">

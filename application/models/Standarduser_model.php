@@ -45,13 +45,13 @@ $insertdata = $this->db->insert('add_patientfindings', $data);
 
 
 
-public function add_oldfindings($data){
+// public function add_oldfindings($data){
 
-$datainsert = $this->db->insert('oldfindings', $data);
+// $datainsert = $this->db->insert('oldfindings', $data);
 
-return $datainsert;
+// return $datainsert;
 
-}
+// }
 
 
 
@@ -93,78 +93,78 @@ public function get_patient($user_id) { // Join tables
 
 
 
-public function get_old_findings($user_id) { // Join tables
+// public function get_old_findings($user_id) { // Join tables
  
- $this->db->select('
-     oldfindings.of_id,
-     oldfindings.of_fname,
-     oldfindings.of_mname, 
-     oldfindings.of_lname,
-     oldfindings.of_gender, 
-     oldfindings.of_age,
-     oldfindings.of_complaint, 
-     oldfindings.of_historypresentillness, 
-     oldfindings.of_bp,
-     oldfindings.of_rr,
-     oldfindings.of_cr,
-     oldfindings.of_temp,
-     oldfindings.of_wt, 
-     oldfindings.of_pr,
-     oldfindings.of_physicalexam,
-     oldfindings.of_diagnosis,
-     oldfindings.of_medication,
-     oldfindings.of_date,
-     standardusers.su_user,
-     standardusers.su_fname,
-     standardusers.su_position
-  ');
+//  $this->db->select('
+//      oldfindings.of_id,
+//      oldfindings.of_fname,
+//      oldfindings.of_mname, 
+//      oldfindings.of_lname,
+//      oldfindings.of_gender, 
+//      oldfindings.of_age,
+//      oldfindings.of_complaint, 
+//      oldfindings.of_historypresentillness, 
+//      oldfindings.of_bp,
+//      oldfindings.of_rr,
+//      oldfindings.of_cr,
+//      oldfindings.of_temp,
+//      oldfindings.of_wt, 
+//      oldfindings.of_pr,
+//      oldfindings.of_physicalexam,
+//      oldfindings.of_diagnosis,
+//      oldfindings.of_medication,
+//      oldfindings.of_date,
+//      standardusers.su_user,
+//      standardusers.su_fname,
+//      standardusers.su_position
+//   ');
 
-    $this->db->from('oldfindings');
-    $this->db->join('standardusers', 'standardusers.su_id = oldfindings.of_physician_id');
-    $this->db->where('oldfindings.of_physician_id', $user_id);
+//     $this->db->from('oldfindings');
+//     $this->db->join('standardusers', 'standardusers.su_id = oldfindings.of_physician_id');
+//     $this->db->where('oldfindings.of_physician_id', $user_id);
 
- $query = $this->db->get();
+//  $query = $this->db->get();
 
- return $query->result();
+//  return $query->result();
   
-}
+// }
 
 
 
-public function get_old_admission($user_id){
+// public function get_old_admission($user_id){
 
- $this->db->select('
-     oldadmission.oad_id,
-     oldadmission.oad_fname,
-     oldadmission.oad_mname, 
-     oldadmission.oad_lname,
-     oldadmission.oad_gender, 
-     oldadmission.oad_age,
-     oldadmission.oad_complaint, 
-     oldadmission.oad_completediagnosis, 
-     oldadmission.oad_medication,
-     oldadmission.oad_conditiontodischarge,
-     oldadmission.oad_remarks, 
-     oldadmission.oad_dischargedate,
-     oldadmission.oad_date,
-     oldadmission.oad_admittedby,
-     oldadmission.oad_wardname,
-     standardusers.su_user,
-     standardusers.su_fname,
-     standardusers.su_position
-  ');
+//  $this->db->select('
+//      oldadmission.oad_id,
+//      oldadmission.oad_fname,
+//      oldadmission.oad_mname, 
+//      oldadmission.oad_lname,
+//      oldadmission.oad_gender, 
+//      oldadmission.oad_age,
+//      oldadmission.oad_complaint, 
+//      oldadmission.oad_completediagnosis, 
+//      oldadmission.oad_medication,
+//      oldadmission.oad_conditiontodischarge,
+//      oldadmission.oad_remarks, 
+//      oldadmission.oad_dischargedate,
+//      oldadmission.oad_date,
+//      oldadmission.oad_admittedby,
+//      oldadmission.oad_wardname,
+//      standardusers.su_user,
+//      standardusers.su_fname,
+//      standardusers.su_position
+//   ');
 
-    $this->db->from('oldadmission');
-    $this->db->join('standardusers', 'standardusers.su_id = oldadmission.oad_physician_id');
-    $this->db->where('oldadmission.oad_physician_id', $user_id);
+//     $this->db->from('oldadmission');
+//     $this->db->join('standardusers', 'standardusers.su_id = oldadmission.oad_physician_id');
+//     $this->db->where('oldadmission.oad_physician_id', $user_id);
 
- $query = $this->db->get();
+//  $query = $this->db->get();
 
- return $query->result();
+//  return $query->result();
 
 
 
-}
+// }
 
 
 
@@ -248,29 +248,29 @@ public function get_patient_data($finding_id) { // Join tables
 }
 
 
-public function get_old_findings_data($oldfindings_id){
+// public function get_old_findings_data($oldfindings_id){
 
-  $this->db->where('of_id', $oldfindings_id);
+//   $this->db->where('of_id', $oldfindings_id);
 
- $query = $this->db->get('oldfindings');
+//  $query = $this->db->get('oldfindings');
 
- return $query->row();
-
-
-}
+//  return $query->row();
 
 
-public function get_old_admission_data($oldadmissiondata){
-
-$this->db->where('oad_id', $oldadmissiondata);
-
- $query = $this->db->get('oldadmission');
-
- return $query->row();
+// }
 
 
+// public function get_old_admission_data($oldadmissiondata){
 
-}
+// $this->db->where('oad_id', $oldadmissiondata);
+
+//  $query = $this->db->get('oldadmission');
+
+//  return $query->row();
+
+
+
+// }
 
 
 public function get_patient_admission($admission_id) { // Join tables
@@ -288,14 +288,14 @@ public function get_patient_admission($admission_id) { // Join tables
 
 
 
-public function add_old_admission($data){
+// public function add_old_admission($data){
 
-$datainsert = $this->db->insert('oldadmission', $data);
+// $datainsert = $this->db->insert('oldadmission', $data);
 
-return $datainsert;
+// return $datainsert;
 
 
-}
+// }
 
 
 

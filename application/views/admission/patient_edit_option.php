@@ -39,17 +39,17 @@
 
  			   <div style="margin-bottom:17px;">
  				<div class="row no-gutters">
-                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Civil Status</div>
+                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Developmental Stage</div>
                 </div>
- 				 <select  class="form-control" name="e_civilstat" >
-             <option value=<?php echo $get_data->pr_civilstat; ?><?php echo set_select('e_civilstat', $get_data->pr_civilstat); ?>><?php echo $get_data->pr_civilstat; ?></option>
-             <?php if(count($get_civilstat)): ?>
-                        <?php foreach($get_civilstat as $civilstat): ?>
-                        <option value=<?php echo $civilstat->c_name; ?><?php echo set_select('e_civilstat', $civilstat->c_name); ?>><?php echo $civilstat->c_name; ?></option>
+ 				 <select  class="form-control" name="e_devstage" >
+             <option value=<?php echo $get_data->pr_devstage; ?><?php echo set_select('e_devstage', $get_data->pr_devstage); ?>><?php echo $get_data->pr_devstage; ?></option>
+             <?php if(count($get_devstage)): ?>
+                        <?php foreach($get_devstage as $devstage): ?>
+                        <option value=<?php echo $devstage->c_name; ?><?php echo set_select('e_devstage', $devstage->c_name); ?>><?php echo $devstage->c_name; ?></option>
                <?php endforeach; ?>
              <?php endif; ?> 
             </select> 
-         <div class="text-danger text-center"><?php echo form_error('e_civilstat'); ?></div>   
+         <div class="text-danger text-center"><?php echo form_error('e_devstage'); ?></div>   
  			   </div>
 
  			   <div style="margin-bottom:17px;">
@@ -85,10 +85,10 @@
 
  			   <div style="margin-bottom:18px;">
  				<div class="row no-gutters">
-                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Occupation</div>
+                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Nationality</div>
                 </div>
- 				<div class="h5 mb-1 font-weight-bold text-gray-800"><input class="form-control  <?= (form_error('e_occup') == "" ? '':'is-invalid') ?>" type="text" name="e_occup" value="<?php echo $get_data->pr_occup; ?>"></div>
-        <div class="text-danger text-center"><?php echo form_error('e_occup'); ?></div>
+ 				<div class="h5 mb-1 font-weight-bold text-gray-800"><input class="form-control  <?= (form_error('e_nationality') == "" ? '':'is-invalid') ?>" type="text" name="e_nationality" value="<?php echo $get_data->pr_nationality; ?>"></div>
+        <div class="text-danger text-center"><?php echo form_error('e_nationality'); ?></div>
  			   </div>
 
 

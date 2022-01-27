@@ -75,7 +75,7 @@ class Standardusercontrol extends CI_Controller
       $user_id = $this->session->userdata('su_id');
 
       $data['get_doctor_patient'] = $this->Standarduser_model->get_patient($user_id);
-      $data['title'] = 'Outpatient Datatable';
+      $data['title'] = 'Patient Datatable';
       $data['topbar'] = 'standardaccount/doctorpagenavbar';
       $data['main_view'] = "standardaccount/datatable";
 

@@ -36,7 +36,7 @@
               <div class="text-center">
                <br>
                 <h6><b>Welcome to </b></h6>
-                 <h6><b>PediaTopia Clinic</b></h6>
+                 <h6><b>Margarito A. Duavit Memorial Hospital</b></h6>
                  <h1 class="h4 text-gray-900">Patient Record Management System </h1>
                  <h4 class="text-center">Create User</h4>
               </div>

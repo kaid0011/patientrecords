@@ -64,9 +64,9 @@ return $query;
 
 
 
-public function get_devstage(){
+public function get_civilstat(){
 
-$query = $this->db->get('devstage');
+$query = $this->db->get('civilstat');
 
 if($query->num_rows() > 0){
  
@@ -249,21 +249,14 @@ public function get_patient_findings_id($pr_id) { // Join tables
      patient_record.pr_fname,
      patient_record.pr_mname,
      patient_record.pr_addrs,
-     patient_record.pr_bdate,
      patient_record.pr_age,
+     patient_record.pr_bdate,
      patient_record.pr_bplace,
-     patient_record.pr_devstage,
+     patient_record.pr_civilstat,
      patient_record.pr_gen,
-     patient_record.pr_religion,
-     patient_record.pr_nationality,
-     patient_record.pr_height,
-     patient_record.pr_weight,
-     patient_record.pr_grdnname,
      patient_record.pr_number,
-     patient_record.pr_grdnemail,
-     patient_record.pr_grdnrelation,
-     patient_record.pr_schname,
-     patient_record.pr_schaddress
+     patient_record.pr_religion,
+     patient_record.pr_occup
  	');
 
     $this->db->from('findings');
@@ -302,21 +295,14 @@ public function get_data_findings($findings_id) { // Join tables
      patient_record.pr_fname,
      patient_record.pr_mname,
      patient_record.pr_addrs,
-     patient_record.pr_bdate,
      patient_record.pr_age,
+     patient_record.pr_bdate,
      patient_record.pr_bplace,
-     patient_record.pr_devstage,
+     patient_record.pr_civilstat,
      patient_record.pr_gen,
-     patient_record.pr_religion,
-     patient_record.pr_nationality,
-     patient_record.pr_height,
-     patient_record.pr_weight,
-     patient_record.pr_grdnname,
      patient_record.pr_number,
-     patient_record.pr_grdnemail,
-     patient_record.pr_grdnrelation,
-     patient_record.pr_schname,
-     patient_record.pr_schaddress
+     patient_record.pr_religion,
+     patient_record.pr_occup
  	');
 
     $this->db->from('findings');
@@ -366,21 +352,14 @@ public function get_patient_admission_id($pr_id) { // Join tables
      patient_record.pr_fname,
      patient_record.pr_mname,
      patient_record.pr_addrs,
-     patient_record.pr_bdate,
      patient_record.pr_age,
+     patient_record.pr_bdate,
      patient_record.pr_bplace,
-     patient_record.pr_devstage,
+     patient_record.pr_civilstat,
      patient_record.pr_gen,
-     patient_record.pr_religion,
-     patient_record.pr_nationality,
-     patient_record.pr_height,
-     patient_record.pr_weight,
-     patient_record.pr_grdnname,
      patient_record.pr_number,
-     patient_record.pr_grdnemail,
-     patient_record.pr_grdnrelation,
-     patient_record.pr_schname,
-     patient_record.pr_schaddress
+     patient_record.pr_religion,
+     patient_record.pr_occup
     ');
 
     $this->db->from('admission_record');
@@ -425,21 +404,14 @@ public function get_data_admission($admission_id) {
      patient_record.pr_fname,
      patient_record.pr_mname,
      patient_record.pr_addrs,
-     patient_record.pr_bdate,
      patient_record.pr_age,
+     patient_record.pr_bdate,
      patient_record.pr_bplace,
-     patient_record.pr_devstage,
+     patient_record.pr_civilstat,
      patient_record.pr_gen,
-     patient_record.pr_religion,
-     patient_record.pr_nationality,
-     patient_record.pr_height,
-     patient_record.pr_weight,
-     patient_record.pr_grdnname,
      patient_record.pr_number,
-     patient_record.pr_grdnemail,
-     patient_record.pr_grdnrelation,
-     patient_record.pr_schname,
-     patient_record.pr_schaddress
+     patient_record.pr_religion,
+     patient_record.pr_occup
     ');
 
     $this->db->from('admission_record');

@@ -1,11 +1,13 @@
 
+
+
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
       
             <div class="card-header py-3">
            
             <!-- Page Heading -->
-          <h5 class="mb-2 text-gray-800">Out Patient Table
+          <h5 class="mb-2 text-gray-800">Old Findings
                   </h5>  
 
             </div>
@@ -31,26 +33,26 @@
                       <th>Gender</th>
                       <th>Age</th>
                       <th>Date Consulted</th>
-                      <th class="text-center">Action</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
 
                   <tbody>
                     
-                      <?php foreach($get_doctor_patient as $patient): ?>
+                      <?php foreach($oldrecords as $patient): ?>
                    <tr>
 
-                <?php echo "<td class='text-center'>". $patient->a_lname ."</td>" ?>
-                <?php echo "<td class='text-center'>". $patient->a_fname ."</td>" ?>
-                <?php echo "<td class='text-center'>". $patient->a_mname ."</td>" ?>
-                <?php echo "<td class='text-center'>". $patient->a_historypresentillness ."</td>" ?>
-                <?php echo "<td class='text-center'>". $patient->a_gender ."</td>" ?>
-                <?php echo "<td class='text-center'>". $patient->a_age ."</td>" ?>
-                <?php echo "<td class='text-center'>". $patient->a_date ."</td>" ?>
+                <?php echo "<td class='text-center'>". $patient->of_lname ."</td>" ?>
+                <?php echo "<td class='text-center'>". $patient->of_fname ."</td>" ?>
+                <?php echo "<td class='text-center'>". $patient->of_mname ."</td>" ?>
+                <?php echo "<td class='text-center'>". $patient->of_historypresentillness ."</td>" ?>
+                <?php echo "<td class='text-center'>". $patient->of_gender ."</td>" ?>
+                <?php echo "<td class='text-center'>". $patient->of_age ."</td>" ?>
+                <?php echo "<td class='text-center'>". $patient->of_date ."</td>" ?>
                 
-                 <?php echo "<td class='text-center'><a  class='btn btn-info' href='". base_url() ."standardusercontrol/findings_view/". $patient->a_id ."'>View
-                  </a> </td>" ?>
-
+                
+                 <?php echo "<td class='text-center'><a style='margin-left:5px;' class='btn btn-info' href='". base_url() ."standardusercontrol/oldfindingsview/". $patient->of_id ."'>View
+                  </a></td>" ?>
 
             
                     </tr>           

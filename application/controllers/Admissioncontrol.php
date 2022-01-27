@@ -117,7 +117,7 @@ public function edit_form($pr_id){
 
 
 
-$data['title'] = 'Edit Patient Form';
+$data['title'] = 'Update Patient Form';
 
 $data['get_devstage'] = $this->Record_model->get_devstage();
 $data['get_gender'] = $this->Record_model->get_gender();
@@ -251,12 +251,12 @@ $this->form_validation->set_rules('e_date', 'Date Added', 'trim|required');
 $this->form_validation->set_rules('e_height', 'Height', 'trim|numeric|min_length[1]');
 $this->form_validation->set_rules('e_weight', 'Weight', 'trim|numeric|min_length[1]');
 
-$this->form_validation->set_rules('grdnname', 'Parent or Guardian Name', 'trim|required|alpha_numeric_spaces');
-$this->form_validation->set_rules('number', 'Mobile/Tel No.', 'trim|required|min_length[11]|max_length[11]');
-$this->form_validation->set_rules('grdnemail', 'Guardian E-mail Address', 'trim');
-$this->form_validation->set_rules('grdnrelation', 'Relationship to Patient', 'trim|required|alpha_numeric_spaces');
-$this->form_validation->set_rules('schname', 'School Name', 'trim|alpha_numeric_spaces');
-$this->form_validation->set_rules('schaddress', 'School Address', 'trim|alpha_numeric_spaces');
+$this->form_validation->set_rules('e_grdnname', 'Parent or Guardian Name', 'trim|required|alpha_numeric_spaces');
+$this->form_validation->set_rules('e_number', 'Mobile/Tel No.', 'trim|required|min_length[11]|max_length[11]');
+$this->form_validation->set_rules('e_grdnemail', 'Guardian E-mail Address', 'trim');
+$this->form_validation->set_rules('e_grdnrelation', 'Relationship to Patient', 'trim|required|alpha_numeric_spaces');
+$this->form_validation->set_rules('e_schname', 'School Name', 'trim|alpha_numeric_spaces');
+$this->form_validation->set_rules('e_schaddress', 'School Address', 'trim|alpha_numeric_spaces');
 
 
 if($this->form_validation->run() == FALSE) {

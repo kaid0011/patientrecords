@@ -100,9 +100,9 @@
 
          <div style="margin-bottom:17px;">
         <div class="row no-gutters">
-                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Civil Status</div>
+                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Developmental Stage</div>
                 </div>
-        <div class="h5 mb-1 font-weight-bold text-gray-800"><?php echo $get_data->pr_civilstat; ?></div>
+        <div class="h5 mb-1 font-weight-bold text-gray-800"><?php echo $get_data->pr_devstage; ?></div>
          </div>
 
          <div style="margin-bottom:17px;">
@@ -128,9 +128,9 @@
 
          <div style="margin-bottom:18px;">
         <div class="row no-gutters">
-                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Occupation</div>
+                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Nationality</div>
                 </div>
-        <div class="h5 mb-1 font-weight-bold text-gray-800"><?php echo $get_data->pr_occup; ?></div>
+        <div class="h5 mb-1 font-weight-bold text-gray-800"><?php echo $get_data->pr_nationality; ?></div>
          </div>
 
          <div style="margin-bottom:18px;">

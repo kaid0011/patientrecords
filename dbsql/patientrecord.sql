@@ -143,19 +143,19 @@ INSERT INTO `admission_record` (`ad_id`, `ad_wardname`, `ad_date`, `ad_admittedb
 -- --------------------------------------------------------
 
 --
--- Table structure for table `civilstat`
+-- Table structure for table `devstage`
 --
 
-CREATE TABLE `civilstat` (
+CREATE TABLE `devstage` (
   `c_id` int(11) NOT NULL,
   `c_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `civilstat`
+-- Dumping data for table `devstage`
 --
 
-INSERT INTO `civilstat` (`c_id`, `c_name`) VALUES
+INSERT INTO `devstage` (`c_id`, `c_name`) VALUES
 (1, 'Single'),
 (2, 'Married'),
 (3, 'Separated');
@@ -416,11 +416,11 @@ CREATE TABLE `patient_record` (
   `pr_age` int(11) NOT NULL,
   `pr_bdate` date NOT NULL,
   `pr_bplace` varchar(255) NOT NULL,
-  `pr_civilstat` varchar(255) NOT NULL,
+  `pr_devstage` varchar(255) NOT NULL,
   `pr_gen` varchar(255) NOT NULL,
   `pr_number` varchar(255) NOT NULL,
   `pr_religion` varchar(255) NOT NULL,
-  `pr_occup` varchar(255) NOT NULL,
+  `pr_nationality` varchar(255) NOT NULL,
   `month` varchar(255) NOT NULL,
   `year` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -429,7 +429,7 @@ CREATE TABLE `patient_record` (
 -- Dumping data for table `patient_record`
 --
 
-INSERT INTO `patient_record` (`pr_id`, `pr_user_id`, `pr_date`, `pr_lname`, `pr_fname`, `pr_mname`, `pr_addrs`, `pr_age`, `pr_bdate`, `pr_bplace`, `pr_civilstat`, `pr_gen`, `pr_number`, `pr_religion`, `pr_occup`, `month`, `year`) VALUES
+INSERT INTO `patient_record` (`pr_id`, `pr_user_id`, `pr_date`, `pr_lname`, `pr_fname`, `pr_mname`, `pr_addrs`, `pr_age`, `pr_bdate`, `pr_bplace`, `pr_devstage`, `pr_gen`, `pr_number`, `pr_religion`, `pr_nationality`, `month`, `year`) VALUES
 (1, 1, '2019-03-13', 'Hassan', 'Jenna', 'Castro', 'San Carlos Heights Binangonan Rizal', 26, '1992-07-03', 'Cainta Rizal', 'Single', 'Female', '09293932931', 'Catholic', 'Call Center', 'Apr', '2019'),
 (2, 1, '2019-03-19', 'Navarro', 'James', 'Fernandez', 'Pantok Binangonan Rizal', 25, '1993-11-25', 'Angono Rizal', 'Single', 'Male', '09292342923', 'KIDKH', 'Merchandiser', 'Apr', '2019'),
 (3, 1, '2019-04-13', 'Cuevas', 'Justin', 'Aquino', 'San Carlos Binangonan Rizal', 29, '1998-05-27', 'Angono Rizal', 'Married', 'Male', '09292234122', 'Catholic', 'Factory Worker', 'Apr', '2019'),
@@ -566,9 +566,9 @@ ALTER TABLE `admission_record`
   ADD PRIMARY KEY (`ad_id`);
 
 --
--- Indexes for table `civilstat`
+-- Indexes for table `devstage`
 --
-ALTER TABLE `civilstat`
+ALTER TABLE `devstage`
   ADD PRIMARY KEY (`c_id`);
 
 --
@@ -666,9 +666,9 @@ ALTER TABLE `admission_record`
   MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `civilstat`
+-- AUTO_INCREMENT for table `devstage`
 --
-ALTER TABLE `civilstat`
+ALTER TABLE `devstage`
   MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --

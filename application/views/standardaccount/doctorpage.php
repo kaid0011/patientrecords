@@ -111,24 +111,9 @@
          <!-- Nav Item - Tables -->
         <a class="nav-link collapsed " href="<?php echo base_url(); ?>standardusercontrol/outpatientview">
           <i class="fas fa-fw fa-table "></i>
-          <span>Out Patient Table</span></a>
+          <span>Patient Table</span></a>
       </li>
 
-       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
-         <!-- Nav Item - Tables -->
-        <a class="nav-link collapsed " href="<?php echo base_url(); ?>standardusercontrol/admissionview">
-          <i class="fas fa-fw fa-table "></i>
-          <span>Admission Table</span></a>
-      </li>
-
-       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
-         <!-- Nav Item - Tables -->
-        <a class="nav-link collapsed " href="<?php echo base_url(); ?>standardusercontrol/oldrecords">
-          <i class="fas fa-folder-open "></i>
-          <span>Old Records</span></a>
-      </li>
 
 
 

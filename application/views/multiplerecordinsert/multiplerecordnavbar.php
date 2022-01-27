@@ -6,12 +6,16 @@
          <!-- Nav Item - Tables -->
         <a  class="nav-link collapsed text-secondary" href="<?php echo base_url(); ?>multiplerecordcontrol/multiplerecordview">
           <i class="fas fa-fw fa-file "></i>
-          <span>Patient Findings</span></a>
+          <span>Out Patient Findings</span></a>
 
 
         <div class="topbar-divider d-none d-sm-block"></div>
 
-        
+         <!-- Nav Item - Tables -->
+        <a  class="nav-link collapsed text-secondary" href="<?php echo base_url(); ?>multiplerecordcontrol/admissionviewform">
+          <i class="fas fa-fw fa-bed "></i>
+          <span>Admission Record</span></a>
+
 
     
           <!-- Topbar Navbar -->

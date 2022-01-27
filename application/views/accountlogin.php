@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,8 +22,8 @@
 </head>
 
 <body class="bg-gradient-success">
-  
-  <div  id="admin" class="container">
+
+  <div id="admin" class="container">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
@@ -35,16 +34,16 @@
             <div class="p-5">
               <div class="text-center">
                 <img width="70" height="70" src="<?php echo base_url(); ?>img/rizal.png"><br><br>
-                 <h6><b>PediaTopia Clinic</b></h6>
-                 <h1 class="h4 text-gray-900 mb-4">Patient Record Management System </h1>
+                <h6><b>PediaTopia Clinic</b></h6>
+                <h1 class="h4 text-gray-900 mb-4">Patient Record Management System </h1>
               </div>
-           
-              <hr>
-                <?php 
-                 
-                  $this->load->view($accountlogin);
 
-                 ?>
+              <hr>
+              <?php
+
+              $this->load->view($accountlogin);
+
+              ?>
               <hr>
               <div class="text-center">
                 <a style="color: black; text-decoration: none" class="small" href="<?php echo base_url(); ?>indexcontrol/forgotpassuser">Forgot Password?</a>
@@ -52,10 +51,10 @@
               <div class="text-center">
                 <a style="color: black; text-decoration: none" class="small" href="<?php echo base_url(); ?>standardusercontrol/standarduserview">Login to Standard account</a>
               </div>
-            
+
             </div>
           </div>
-           <div class="col-lg-3 d-none d-lg-block"></div>
+          <div class="col-lg-3 d-none d-lg-block"></div>
         </div>
       </div>
     </div>

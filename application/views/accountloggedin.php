@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +23,6 @@
 
 <body class="bg-gradient-success">
 
-    
 
   <div class="container">
 
@@ -36,42 +34,44 @@
           <div class="col-lg-6">
             <div class="p-5">
               <div class="text-center">
-                 <img width="70" height="70" src="<?php echo base_url(); ?>img/rizal.png"><br><br>
-                 <h6><b>Margarito A. Duavit Memorial Hospital</b></h6>
+
+                <img width="70" height="70" src="<?php echo base_url(); ?>img/rizal.png"><br><br>
+                <h6><b>PediaTopia Clinic</b></h6>
+
                 <h1 class="h4 text-gray-900 mb-4">Patient Record Management System</h1>
               </div>
               <hr>
 
-            <?php if($this->session->flashdata('newpass_success')): ?>
-          
-          <?php echo "<div class='alert alert-success alert-dismissible text-center'>
-                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                ".$this->session->flashdata('newpass_success') ."<h6><i class='con fa fa-check'></i></h6></div>" ?>
-          
-           <?php endif; ?>
-           
-           <?php if($this->session->flashdata('failed_login')): ?>
-          
-          <?php echo "<div class='alert alert-danger alert-dismissible text-center'>
-                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                ".$this->session->flashdata('failed_login') ."<h6><i class='con fa fa-close '></i></h6></div>" ?>
-          
-           <?php endif; ?>
+              <?php if ($this->session->flashdata('newpass_success')) : ?>
 
-        <?php if($this->session->flashdata('login_failed')): ?>
-          
-          <?php echo "<div class='alert alert-danger alert-dismissible text-center'>
+                <?php echo "<div class='alert alert-success alert-dismissible text-center'>
                 <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                ".$this->session->flashdata('login_failed') ."<h6><i class='con fa fa-close '></i></h6></div>" ?>
-          
-           <?php endif; ?>
+                " . $this->session->flashdata('newpass_success') . "<h6><i class='con fa fa-check'></i></h6></div>" ?>
 
- 
-                <?php 
-                 
-                  $this->load->view($logging);
+              <?php endif; ?>
 
-                 ?>
+              <?php if ($this->session->flashdata('failed_login')) : ?>
+
+                <?php echo "<div class='alert alert-danger alert-dismissible text-center'>
+                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                " . $this->session->flashdata('failed_login') . "<h6><i class='con fa fa-close '></i></h6></div>" ?>
+
+              <?php endif; ?>
+
+              <?php if ($this->session->flashdata('login_failed')) : ?>
+
+                <?php echo "<div class='alert alert-danger alert-dismissible text-center'>
+                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                " . $this->session->flashdata('login_failed') . "<h6><i class='con fa fa-close '></i></h6></div>" ?>
+
+              <?php endif; ?>
+
+
+              <?php
+
+              $this->load->view($logging);
+
+              ?>
               <hr>
               <div class="text-center">
                 <a style="text-decoration: none; color: black;" class="small" href="<?php echo base_url(); ?>indexcontrol/forgotpassuser">Forgot Password?</a>
@@ -79,10 +79,10 @@
               <div class="text-center">
                 <a style="color: black; text-decoration: none" class="small" href="<?php echo base_url(); ?>standardusercontrol/standarduserview">Login to Standard account</a>
               </div>
-              
+
             </div>
           </div>
-           <div class="col-lg-3 d-none d-lg-block"></div>
+          <div class="col-lg-3 d-none d-lg-block"></div>
         </div>
       </div>
     </div>

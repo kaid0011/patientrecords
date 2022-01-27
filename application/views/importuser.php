@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,8 +22,8 @@
 </head>
 
 <body class="bg-gradient-success">
-  
-  <div  id="admin" class="container">
+
+  <div id="admin" class="container">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
@@ -34,24 +33,26 @@
           <div class="col-lg-6">
             <div class="p-5">
               <div class="text-center">
-               <br>
+                <br>
                 <h6><b>Welcome to </b></h6>
-                 <h6><b>Margarito A. Duavit Memorial Hospital</b></h6>
-                 <h1 class="h4 text-gray-900">Patient Record Management System </h1>
-                 <h4 class="text-center">Create User</h4>
+
+                <h6><b>PediaTopia Clinic</b></h6>
+                <h1 class="h4 text-gray-900">Patient Record Management System </h1>
+                <h4 class="text-center">Create User</h4>
+
               </div>
-           
+
               <hr>
               <form method='post' action='<?php echo base_url(); ?>multiplerecordcontrol/importuser' enctype="multipart/form-data">
-     <input type='file' name='file' >
-     <input type='submit' value='Upload' name='upload'>
-            </form>
+                <input type='file' name='file'>
+                <input type='submit' value='Upload' name='upload'>
+              </form>
               <hr>
-             
-            
+
+
             </div>
           </div>
-           <div class="col-lg-3 d-none d-lg-block"></div>
+          <div class="col-lg-3 d-none d-lg-block"></div>
         </div>
       </div>
     </div>

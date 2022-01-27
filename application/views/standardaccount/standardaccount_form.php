@@ -34,12 +34,12 @@
                 </div>
                 <div class="form-group ">
                 <?php echo form_label('Username'); ?>
-                  <input type="text" class="form-control  <?= (form_error('user1') == "" ? '':'is-invalid') ?> "  name="user1" placeholder="Username" value="<?php echo set_value('user1') ?>">
+                  <input id= "username" type="text" class="form-control  <?= (form_error('user1') == "" ? '':'is-invalid') ?> "  name="user1" placeholder="Username" value="<?php echo set_value('user1') ?>">
                   <div class="text-danger text-center"><?php echo form_error('user1'); ?></div>
                 </div>
                 <div class="form-group">
                  <?php echo form_label('Password'); ?>
-                    <input type="password" class="form-control  <?= (form_error('pass1') == "" ? '':'is-invalid') ?>" name="pass1" placeholder="Password" value="<?php echo set_value('pass1') ?>">
+                    <input id="pass" type="password" class="form-control  <?= (form_error('pass1') == "" ? '':'is-invalid') ?>" name="pass1" placeholder="Password" value="<?php echo set_value('pass1') ?>">
                     <div class="text-danger text-center"><?php echo form_error('pass1'); ?></div>
                 </div>
                 <button style="margin-left: 172px;" type="submit" class="btn btn-success btn-icon-split" name="submit">

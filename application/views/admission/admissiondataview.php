@@ -102,9 +102,9 @@
 
          <div style="margin-bottom:17px;">
         <div class="row no-gutters">
-                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Developmental Stage</div>
+                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Civil Status</div>
                 </div>
-        <div class="h5 mb-1 font-weight-bold text-gray-800"><?php echo $get_admission_view->pr_devstage; ?></div>
+        <div class="h5 mb-1 font-weight-bold text-gray-800"><?php echo $get_admission_view->pr_civilstat; ?></div>
          </div>
 
          <div style="margin-bottom:17px;">
@@ -130,9 +130,9 @@
 
          <div style="margin-bottom:18px;">
         <div class="row no-gutters">
-                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Nationality</div>
+                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Occupation</div>
                 </div>
-        <div class="h5 mb-1 font-weight-bold text-gray-800"><?php echo $get_admission_view->pr_nationality; ?></div>
+        <div class="h5 mb-1 font-weight-bold text-gray-800"><?php echo $get_admission_view->pr_occup; ?></div>
          </div>
 
          <div style="margin-bottom:18px;">

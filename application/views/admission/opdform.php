@@ -1,15 +1,18 @@
-<?php if ($this->session->flashdata('patientrecord_success')) : ?>
-
-  <?php echo "<div style='#1cc88a' class='alert alert-success alert-dismissible text-center'>
+    
+   
+            <?php if($this->session->flashdata('patientrecord_success')): ?>
+          
+          <?php echo "<div style='#1cc88a' class='alert alert-success alert-dismissible text-center'>
                 <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                <h6><i class='con fa fa-check'></i></h6>" . $this->session->flashdata('patientrecord_success') . "</div>" ?>
+                <h6><i class='con fa fa-check'></i></h6>".$this->session->flashdata('patientrecord_success') ."</div>" ?>
+          
+           <?php endif; ?>
 
-<?php endif; ?>
-
-<?php if ($this->session->flashdata('patientrecord_failed')) : ?>
-
-  <?php echo "<div style='bg-color:#e74a3b;' class='alert alert-success alert-dismissible text-center'>
+       <?php if($this->session->flashdata('patientrecord_failed')): ?>
+          
+          <?php echo "<div style='bg-color:#e74a3b;' class='alert alert-success alert-dismissible text-center'>
                 <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+
                 " . $this->session->flashdata('patientrecord_failed') . "<h6><i class='con fa fa-check'></i></h6></div>" ?>
 
 <?php endif; ?>

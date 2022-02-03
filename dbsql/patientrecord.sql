@@ -135,6 +135,7 @@ INSERT INTO `admission_record` (`ad_id`, `ad_wardname`, `ad_date`, `ad_admittedb
 
 --
 -- Table structure for table `civilstat`
+
 --
 
 CREATE TABLE `civilstat` (
@@ -155,16 +156,18 @@ INSERT INTO `civilstat` (`c_id`, `c_name`) VALUES
 
 --
 -- Table structure for table `devstage`
+
 --
 
-CREATE TABLE `devstage` (
+CREATE TABLE `civilstat` (
   `c_id` int(11) NOT NULL,
   `c_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `devstage`
+-- Dumping data for table `civilstat`
 --
+
 
 INSERT INTO `devstage` (`c_id`, `c_name`) VALUES
 (1, 'Infant (0-12 mos)'),
@@ -172,6 +175,7 @@ INSERT INTO `devstage` (`c_id`, `c_name`) VALUES
 (3, 'Preschool (4-5 yrs)'),
 (4, 'School Age (6-12 yrs)'),
 (5, 'Adolescents (13-18 yrs)');
+
 
 -- --------------------------------------------------------
 
@@ -409,10 +413,11 @@ CREATE TABLE `patient_record` (
   `pr_age` int(11) NOT NULL,
   `pr_bdate` date NOT NULL,
   `pr_bplace` varchar(255) NOT NULL,
-  `pr_devstage` varchar(255) NOT NULL,
+  `pr_civilstat` varchar(255) NOT NULL,
   `pr_gen` varchar(255) NOT NULL,
   `pr_number` varchar(255) NOT NULL,
   `pr_religion` varchar(255) NOT NULL,
+
   `pr_nationality` varchar(255) NOT NULL,
   `pr_height` int(11) NOT NULL,
   `pr_weight` int(11) NOT NULL,
@@ -421,9 +426,11 @@ CREATE TABLE `patient_record` (
   `pr_grdnrelation` varchar(255) NOT NULL,
   `pr_schname` varchar(255) NOT NULL,
   `pr_schaddress` varchar(255) NOT NULL,
+
   `month` varchar(255) NOT NULL,
   `year` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -531,14 +538,16 @@ ALTER TABLE `admission_record`
 
 --
 -- Indexes for table `civilstat`
+
 --
 ALTER TABLE `civilstat`
   ADD PRIMARY KEY (`c_id`);
 
 --
 -- Indexes for table `devstage`
+
 --
-ALTER TABLE `devstage`
+ALTER TABLE `civilstat`
   ADD PRIMARY KEY (`c_id`);
 
 --
@@ -637,6 +646,7 @@ ALTER TABLE `admission_record`
 
 --
 -- AUTO_INCREMENT for table `civilstat`
+
 --
 ALTER TABLE `civilstat`
   MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
@@ -646,6 +656,7 @@ ALTER TABLE `civilstat`
 --
 ALTER TABLE `devstage`
   MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 
 --
 -- AUTO_INCREMENT for table `fieldsphysician`

@@ -105,7 +105,7 @@ public function multiplerecordview(){
  
 
    $data['add_physician'] = $this->Multiplerecord_model->get_physician();
-    $data['title'] = 'Patient Findings'; 
+    $data['title'] = 'Out Patient Findings'; 
      $data['topbar'] = 'multiplerecordinsert/multiplerecordnavbar';
     $data['opd_form'] = 'multiplerecordinsert/opdfindingsforminsertion';
     $data['main_view'] = 'multiplerecordinsert/multiplerecordview';

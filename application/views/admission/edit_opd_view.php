@@ -1,247 +1,172 @@
-<?php if ($this->session->flashdata('patientrecord_updated')) : ?>
-
-  <?php echo "<div style='#1cc88a' class='alert alert-success alert-dismissible text-center'>
-                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                <h6><i class='con fa fa-check'></i></h6>" . $this->session->flashdata('patientrecord_updated') . "</div>" ?>
-<?php endif; ?>
-
-
-<?php if ($this->session->flashdata('patientrecord_failed')) : ?>
-
-  <?php echo "<div style='bg-color:#e74a3b;' class='alert alert-success alert-dismissible text-center'>
-                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                " . $this->session->flashdata('patientrecord_failed') . "<h6><i class='con fa fa-check'></i></h6></div>" ?>
-
-<?php endif; ?>
-
-<div class="container-fluid">
-
-  <h1 class="h3 mb-2 text-gray-800 text-center">Update Patient Record</h1>
-  <div class="text-center">
-    <?php echo form_label('Hospital Case No.'); ?>
-    <?php echo "P-0" . $pr_id->pr_id; ?>
-  </div>
-
-  <hr>
-
-  <div class="row d-flex">
-
-    <div class="mr-auto">
-      <h6 class="text-center mb-3"><b>PERSONAL INFORMATION</b></h6>
-      <?php $attributes = array('id' => 'opd_form', 'class' => 'form-horizontal user'); ?>
-      <?php echo form_open('admissioncontrol/edit_opd_form/' . $pr_id->pr_id . '', $attributes); ?>
-    </div>
-
-    <div class="m-2">
-      <?php echo form_label('Date'); ?>
-    </div>
-
-    <div class="">
       
-      <input type="date" class="form-control  <?= (form_error('date') == "" ? '' : 'is-invalid') ?>" name="date" value="<?php echo $pr_id->pr_date ?>">
-      <div class="text-danger text-center"><?php echo form_error('date'); ?></div>
-    </div>
+            <?php if($this->session->flashdata('patientrecord_updated')): ?>
+          
+          <?php echo "<div style='#1cc88a' class='alert alert-success alert-dismissible text-center'>
+                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                <h6><i class='con fa fa-check'></i></h6>".$this->session->flashdata('patientrecord_updated') ."</div>" ?>
+           <?php endif; ?>
+  
 
-  </div>
+       <?php if($this->session->flashdata('patientrecord_failed')): ?>
+          
+          <?php echo "<div style='bg-color:#e74a3b;' class='alert alert-success alert-dismissible text-center'>
+                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                ".$this->session->flashdata('patientrecord_failed') ."<h6><i class='con fa fa-check'></i></h6></div>" ?>
+          
+           <?php endif; ?>
+   
 
-  <div class="row">
-
-    <div class="col-sm-12 ">
-
-      <div class="row">
-
-      </div>
-
-      <div class="row mb-3">
-
-        <div style="" class="col-sm-4">
-          <?php echo form_label('Last Name'); ?>
-          <input type="text" class="form-control  <?= (form_error('lname') == "" ? '' : 'is-invalid') ?>" name="lname" placeholder="Last Name" value="<?php echo $pr_id->pr_lname ?>">
-          <div class="text-danger text-center"><?php echo form_error('lname'); ?></div>
-        </div>
-
-        <div class="col-sm-4">
-          <?php echo form_label('First Name'); ?>
-          <input type="text" style="" class="form-control  <?= (form_error('fname') == "" ? '' : 'is-invalid') ?>" name="fname" placeholder="First Name" value="<?php echo $pr_id->pr_fname ?>">
-          <div class="text-danger text-center"><?php echo form_error('fname'); ?></div>
-        </div>
-
-        <div class="col-sm-4">
-          <?php echo form_label('Middle Name'); ?>
-          <input type="text" style="" class="form-control  <?= (form_error('middlen') == "" ? '' : 'is-invalid') ?>" name="middlen" placeholder="Middle Name" value="<?php echo $pr_id->pr_mname ?>">
-          <div class="text-danger text-center"><?php echo form_error('middlen'); ?></div>
-        </div>
-
-      </div>
-
-      <div class="row mb-3">
-
-        <div style="" class="col-sm-12">
-          <?php echo form_label('Permanent Address'); ?>
-          <input type="text" class="form-control  <?= (form_error('address') == "" ? '' : 'is-invalid') ?>" name="address" placeholder="Permanent Address" value="<?php echo $pr_id->pr_addrs ?>">
-          <div class="text-danger text-center"><?php echo form_error('address'); ?></div>
-        </div>
-
-      </div>
-
-      <div class="row mb-3">
-
-        <div style="" class="col-sm-2">
-          <?php echo form_label('Birthdate'); ?>
-          <input type="date" class="form-control  <?= (form_error('datebirth') == "" ? '' : 'is-invalid') ?>" name="datebirth" value="<?php echo $pr_id->pr_bdate ?>">
-          <div class="text-danger text-center"><?php echo form_error('datebirth'); ?></div>
-        </div>
-
-        <div style="" class="col-sm-2">
-          <?php echo form_label('Age'); ?>
-          <input type="text" class="form-control  <?= (form_error('age') == "" ? '' : 'is-invalid') ?>" name="age" placeholder="Age" value="<?php echo $pr_id->pr_age ?>">
-          <div class="text-danger text-center"><?php echo form_error('age'); ?></div>
-        </div>
-
-        <div style="" class="col-sm-3">
-          <?php echo form_label('Place of Birth'); ?>
-          <input type="text" class="form-control  <?= (form_error('birthplace') == "" ? '' : 'is-invalid') ?>" placeholder="Place of Birth" name="birthplace" value="<?php echo $pr_id->pr_bplace ?>">
-          <div class="text-danger text-center"><?php echo form_error('birthplace'); ?></div>
-        </div>
-
-        <div style="" class="col-sm-3">
-          <?php echo form_label('Developmental Stage'); ?>
-          <select class="form-control" name="devstage">
-            <option value=<?php echo $pr_id->pr_devstage; ?><?php echo set_select('devstage', $pr_id->pr_devstage); ?>><?php echo $pr_id->pr_devstage; ?></option>
-            <?php if (count($get_devstage)) : ?>
-              <?php foreach ($get_devstage as $devstage) : ?>
-                <option value=<?php echo $devstage->c_name; ?><?php echo set_select('devstage', $devstage->c_name); ?>><?php echo $devstage->c_name; ?></option>
-              <?php endforeach; ?>
-            <?php endif; ?>
-          </select>
-          <div class="text-danger text-center"><?php echo form_error('devstage'); ?></div>
-        </div>
-
-        <div style="" class="col-sm-2">
-          <?php echo form_label('Sex'); ?>
-          <select name="gen" class="form-control " name="gen">
-            <option value=<?php echo $pr_id->pr_gen; ?><?php echo set_select('gen', $pr_id->pr_gen); ?>><?php echo $pr_id->pr_gen; ?></option>
-            <?php if (count($get_gender)) : ?>
-              <?php foreach ($get_gender as $gender) : ?>
-                <option value=<?php echo $gender->g_name; ?><?php echo set_select('gen', $gender->g_name); ?>><?php echo $gender->g_name; ?></option>
-              <?php endforeach; ?>
-            <?php endif; ?>
-          </select>
-          <div class="text-danger text-center"><?php echo form_error('gen'); ?></div>
-        </div>
-
-      </div>
-
-      <div class="row mb-3">
-
-        <div style="" class="col-sm-4">
-          <?php echo form_label('Nationality'); ?>
-          <input type="text" class="form-control <?= (form_error('nationality') == "" ? '' : 'is-invalid') ?>" placeholder="Nationality" name="nationality" value="<?php echo $pr_id->pr_nationality ?>">
-          <div class="text-danger text-center"><?php echo form_error('nationality'); ?></div>
-        </div>
-
-        <div style="" class="col-sm-4">
-          <?php echo form_label('Religion'); ?>
-          <input type="text" class="form-control  <?= (form_error('religion') == "" ? '' : 'is-invalid') ?>" placeholder="Religion" name="religion" value="<?php echo $pr_id->pr_religion ?>">
-          <div class="text-danger text-center"><?php echo form_error('religion'); ?></div>
-        </div>
-
-        <div style="" class="col-sm-2">
-          <?php echo form_label('Height'); ?>
-          <input type="text" class="form-control <?= (form_error('height') == "" ? '' : 'is-invalid') ?>" placeholder="Height" name="height" value="<?php echo $pr_id->pr_height ?>">
-          <div class="text-danger text-center"><?php echo form_error('height'); ?></div>
-        </div>
-
-        <div style="" class="col-sm-2">
-          <?php echo form_label('Weight'); ?>
-          <input type="text" class="form-control <?= (form_error('weight') == "" ? '' : 'is-invalid') ?>" placeholder="Weight" name="weight" value="<?php echo $pr_id->pr_weight ?>">
-          <div class="text-danger text-center"><?php echo form_error('weight'); ?></div>
-        </div>
-
-      </div>
-
-      <hr class="mt-5 mb-3">
-
-      <div class="row ">
-        <h6 class="text-center mb-3"><b>CONTACT PERSON</b></h6>
-      </div>
-
-      <div class="row mb-3">
-
-        <div style="" class="col-sm-4">
-          <?php echo form_label('Parent or Guradian Name'); ?>
-          <input type="text" class="form-control  <?= (form_error('grdnname') == "" ? '' : 'is-invalid') ?>" placeholder="Parent or Guradian Name" name="grdnname" value="<?php echo $pr_id->pr_grdnname ?>">
-          <div class="text-danger text-center"><?php echo form_error('grdnname'); ?></div>
-        </div>
-
-        <div style="" class="col-sm-2">
-          <?php echo form_label('Contact Number'); ?>
-          <input type="number" class="form-control  <?= (form_error('number') == "" ? '' : 'is-invalid') ?>" placeholder="Contact Number" name="number" value="<?php echo $pr_id->pr_number ?>">
-          <div class="text-danger text-center"><?php echo form_error('number'); ?></div>
-        </div>
-
-        <div style="" class="col-sm-3">
-          <?php echo form_label('E-mail Address'); ?>
-          <input type="email" class="form-control  <?= (form_error('grdnemail') == "" ? '' : 'is-invalid') ?>" placeholder="E-mail Address" name="grdnemail" value="<?php echo $pr_id->pr_grdnemail ?>">
-          <div class="text-danger text-center"><?php echo form_error('grdnemail'); ?></div>
-        </div>
-
-        <div style="" class="col-sm-3">
-          <?php echo form_label('Relationship to Patient'); ?>
-          <input type="text" class="form-control  <?= (form_error('grdnrelation') == "" ? '' : 'is-invalid') ?>" placeholder="Relationship to Patient" name="grdnrelation" value="<?php echo $pr_id->pr_grdnrelation ?>">
-          <div class="text-danger text-center"><?php echo form_error('grdnrelation'); ?></div>
-        </div>
-
-      </div>
-
-      <hr class="mt-5 mb-3">
-
-      <div class="row">
-        <h6 class="text-center mb-3"><b>IF PATIENT IS A STUDENT, PLEASE PROVIDE SCHOOL DETAILS</b></h6>
-      </div>
-
-      <div class="row mb-3">
-
-        <div style="" class="col-sm-5">
-          <?php echo form_label('School Name'); ?>
-          <input type="text" class="form-control  <?= (form_error('schname') == "" ? '' : 'is-invalid') ?>" placeholder="School Name" name="schname" value="<?php echo $pr_id->pr_schname ?>">
-          <div class="text-danger text-center"><?php echo form_error('schname'); ?></div>
-        </div>
-
-        <div style="" class="col-sm-7">
-          <?php echo form_label('School Address'); ?>
-          <input type="text" class="form-control  <?= (form_error('schaddress') == "" ? '' : 'is-invalid') ?>" placeholder="School Address" name="schaddress" value="<?php echo $pr_id->pr_schaddress ?>">
-          <div class="text-danger text-center"><?php echo form_error('schaddress'); ?></div>
-        </div>
-
-      </div>
-
-      <div class="d-flex justify-content-end">
-        <button style="" id="submitbtn" type="submit" class="btn btn-success btn-icon-split mt-5" name="submit">
-          <span class="icon text-white-100">
-            <i class="fas fa-arrow-right"></i>
-            Save Record
-          </span>
-        </button>
-      </div>
-
-    </div>
     
-    <br><br>
+              <h1 class="h3 mb-2 text-gray-800 text-center">Edit Patient Record</h1>
+              <hr>
+                 <div class="row "><!-- ROW 1 -->
+                   <div class="col-sm-4"></div>
+                   <div class="col-sm-4">
+                     <h6 class="text-center"><b>RIZAL PROVINCIAL HOSPITAL SYSTEM-BINANGONAN ANNEX</b></h6>
+                     <h5 class="text-center"><b>PATIENT RECORD</b></h5>
+                   </div>
+                   <div class="col-sm-4"></div>
+                 </div>
+            
+              <?php $attributes = array('id' => 'opd_form', 'class' => 'form-horizontal user'); ?>
+               <?php echo form_open('admissioncontrol/edit_opd_form/'.$pr_id->pr_id.'', $attributes); ?>
+              
+                   <div class="row"> <!-- ROW 2 -->
+                
+                 <div class="col-sm-12 "><!-- first column -->
+                  <div class="row">
+                
+            
+              <div class="row">
+               
+                  </div>
+                   
 
-  </div>
+             <div style="margin-left: 50px;">
+               <?php echo form_label('Hospital Case No.'); ?>
+              <?php echo "P-0".$pr_id->pr_id; ?>
+            </div> 
 
-</div>
+                      <div style="margin-left: 900px;" class="col-xs-5 ">
+             
+                
+                        <?php echo form_label('Date'); ?>
+                                <input type="date" class="form-control  <?= (form_error('date') == "" ? '':'is-invalid') ?>"  name="date" value="<?php echo $pr_id->pr_date ?>">
+                      <div class="text-danger text-center"><?php echo form_error('date'); ?></div>  
+                     </div> 
+                  
+                  </div><!--  ROW -->   
+               
+                   <div class="row">
+                     <div style="margin-left: 4px;" class="col-sm-4">
+                          <?php echo form_label('Lastname'); ?>
+                   <input type="text"  class="form-control  <?= (form_error('lname') == "" ? '':'is-invalid') ?>"  name="lname" placeholder="Lastname" value="<?php echo $pr_id->pr_lname ?>">
+                  <div class="text-danger text-center"><?php echo form_error('lname'); ?></div>
+                     </div>
+                     <div class="col-sm-4">
+                       <?php echo form_label('Firstname'); ?>
+                           <input type="text" style="margin-left: 4px;"  class="form-control  <?= (form_error('fname') == "" ? '':'is-invalid') ?>"  name="fname" placeholder="Firstname" value="<?php echo $pr_id->pr_fname ?>">
+                  <div class="text-danger text-center"><?php echo form_error('fname'); ?></div>
+                     </div>
+                     <div class="col-sm-3">
+                      <?php echo form_label('MiddleInitial'); ?>
+                       <input type="text" style="margin-left: 2px;" class="form-control  <?= (form_error('middlen') == "" ? '':'is-invalid') ?>"  name="middlen" placeholder="Middleinitial" value="<?php echo $pr_id->pr_mname ?>">
+                  <div class="text-danger text-center"><?php echo form_error('middlen'); ?></div>
+                     </div>
 
-<?php echo form_close(); ?>
+                   </div>
+                  <div class="row">
+                    <div style="margin-left: 4px;" class="col-sm-11">
+                      <?php echo form_label('Address'); ?>
+                                <input type="text" style="margin-left: 7px;" class="form-control  <?= (form_error('address') == "" ? '':'is-invalid') ?>"  name="address" placeholder="Permanent Address" value="<?php echo $pr_id->pr_addrs ?>">
+                  <div class="text-danger text-center"><?php echo form_error('address'); ?></div>
+                    </div>          
+                  </div>
+                   <div class="row">
+                     <div style="margin-left: 4px;" class="col-sm-2">
+                       <?php echo form_label('Age'); ?>
+                                <input type="text" class="form-control  <?= (form_error('age') == "" ? '':'is-invalid') ?>"  name="age" placeholder="Age" value="<?php echo $pr_id->pr_age ?>">
+                  <div class="text-danger text-center"><?php echo form_error('age'); ?></div>  
+                     </div>
+                    <div style="margin-left: 4px;" class="col-xs-3">
+                       <?php echo form_label('Birthday'); ?>
+                                <input type="date" class="form-control <?= (form_error('datebirth') == "" ? '':'is-invalid') ?>"  name="datebirth" value="<?php echo $pr_id->pr_bdate ?>">
+                     <div class="text-danger text-center"><?php echo form_error('datebirth'); ?></div> 
+                     </div>
+                     <div style="margin-left: 4px;" class="col-sm-3">
+                       <?php echo form_label('Birthplace'); ?>
+                                <input type="text" class="form-control  <?= (form_error('birthplace') == "" ? '':'is-invalid') ?>" placeholder="Birth Place"  name="birthplace" value="<?php echo $pr_id->pr_bplace ?>">
+                     <div class="text-danger text-center"><?php echo form_error('birthplace'); ?></div> 
+                     </div>
+                     <div style="margin-left: 4px;" class="col-sm-3">
+                     <?php echo form_label('Civil Status'); ?>
+                       <select  class="form-control" name="civilstat" >
+                       <option value=<?php echo $pr_id->pr_civilstat; ?><?php echo set_select('civilstat', $pr_id->pr_civilstat); ?>><?php echo $pr_id->pr_civilstat; ?></option>
+                       <?php if(count($get_civilstat)): ?>
+                        <?php foreach($get_civilstat as $civilstat): ?>
+                        <option value=<?php echo $civilstat->c_name; ?><?php echo set_select('civilstat', $civilstat->c_name); ?>><?php echo $civilstat->c_name; ?></option>
+                        <?php endforeach; ?>
+                    <?php endif; ?> 
+                      </select> 
+                     <div class="text-danger text-center"><?php echo form_error('civilstat'); ?></div>   
+                     </div>
+                    </div>
+
+                  </div>
+                <div class="row">
+                 <div style="margin-left: 30px;" class="col-xs-3">
+                        <?php echo form_label('Gender'); ?>
+                      <select name="gen" class="form-control " name="gen">
+                        <option value=<?php echo $pr_id->pr_gen; ?><?php echo set_select('gen', $pr_id->pr_gen); ?>><?php echo $pr_id->pr_gen; ?></option>
+                         <?php if(count($get_gender)): ?>
+                        <?php foreach($get_gender as $gender): ?>
+                        <option value=<?php echo $gender->g_name; ?><?php echo set_select('gen', $gender->g_name); ?>><?php echo $gender->g_name; ?></option>
+                        <?php endforeach; ?>
+                      <?php endif; ?>   
+                      </select>  
+                   <div class="text-danger text-center"><?php echo form_error('gen'); ?></div>
+                    </div>
+
+                     <div style="margin-left: 30px;" class="col-xs-3">
+                        <?php echo form_label('Mobile/Tel No.'); ?>
+                                <input type="number" class="form-control  <?= (form_error('number') == "" ? '':'is-invalid') ?>" placeholder="Mobile/Tel No."  name="number" value="<?php echo $pr_id->pr_number ?>">
+                     <div class="text-danger text-center"><?php echo form_error('number'); ?></div>
+
+                    </div>
+
+                    <div style="margin-left: 20px;" class="col-xs-3">
+                        <?php echo form_label('Religion'); ?>
+                                <input type="text" class="form-control <?= (form_error('religion') == "" ? '':'is-invalid') ?>" placeholder="Religion"  name="religion" value="<?php echo $pr_id->pr_religion ?>">
+                     <div class="text-danger text-center"><?php echo form_error('religion'); ?></div> 
+                   </div>
+
+                    <div style="margin-left: 20px;" class="col-xs-3">
+                      <?php echo form_label('Occupation'); ?>
+                                <input type="text" class="form-control <?= (form_error('occup') == "" ? '':'is-invalid') ?>" placeholder="Occupation"  name="occup" value="<?php echo $pr_id->pr_occup ?>">
+                     <div class="text-danger text-center"><?php echo form_error('occup'); ?></div>
+                     </div>                   
+                   </div>
+                  </div>
+                  <br><br>
+                   <button style="margin-left:471px;" id="submitbtn" type="submit" class="btn btn-success btn-icon-split" name="submit">
+                 <span class="icon text-white-100">
+                  <i class="fas fa-arrow-right"></i>  
+                    Save Record
+                  </span>
+                </button>
+                  
+                   <?php echo form_close(); ?>
+    
+         
 
 
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+ <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>

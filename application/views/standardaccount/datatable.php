@@ -48,6 +48,7 @@
               <?php echo "<td class='text-center'>" . $patient->a_date . "</td>" ?>
 
               <?php echo "<td class='text-center'><a  class='btn btn-info' href='" . base_url() . "standardusercontrol/findings_view/" . $patient->a_id . "'>View
+
                   </a> </td>" ?>
 
 

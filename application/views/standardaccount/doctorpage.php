@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="shortcut icon" href="<?php echo base_url(); ?>img/rizal.png" />
+  <link rel="shortcut icon" href="<?php echo base_url(); ?>img/pediatopia.png" />
 
   <title><?php echo $title ?></title>
 
@@ -88,19 +88,17 @@
         <div class="sidebar-brand-icon rotate-n-0">
            <i class="fas fa-folder-open"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Patient Records</div>
+        <div class="sidebar-brand-text mx-2">Patient Records</div>
       </a>
    
 
  <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
+      <!-- Nav Item - Dashboard
       <li class="nav-item active">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
-      </li>
+      </li> -->
 
       <!-- Divider -->
       <hr class="sidebar-divider">

@@ -39,18 +39,32 @@
                 </div>
         <div class="h5 mb-1 font-weight-bold text-gray-800"><input class="form-control  <?= (form_error('a_fname') == "" ? '':'is-invalid') ?>" type="text" name="a_fname" placeholder="Enter Firstname" value="<?php echo set_value('a_fname'); ?>" ></div>
          <div class="text-danger text-center"><?php echo form_error('a_fname'); ?></div>
-               </div>
- </div>
-   <div class="col-sm-2">
-                <div class="row no-gutters">
-                  <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
-                   Position
-                 </div>      
-                </div>
-           <select name="a_position" class="form-control">
-                <option value="Doctor"<?php echo set_select('a_position','Doctor', (!empty($data) && $data == "Doctor" ? TRUE : FALSE )); ?>>Doctor</option>
-                </select> 
-        <div class="text-danger text-center"><?php echo form_error('a_position'); ?></div>  
+
+       </div>
+     </div>
+     <div class="col-sm-2">
+       <div class="row no-gutters">
+         <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
+           Position
+         </div>
+       </div>
+       <select name="a_position" class="form-control">
+         <option value="Doctor" <?php echo set_select('a_position', 'Doctor', (!empty($data) && $data == "Doctor" ? TRUE : FALSE)); ?>>Doctor</option>
+         <option value="Nurse Receptionist" <?php echo set_select('a_position', 'Nurse Receptionist', (!empty($data) && $data == "Nurse Receptionist" ? TRUE : FALSE)); ?>>Nurse Receptionist</option>
+       </select>
+       <div class="text-danger text-center"><?php echo form_error('a_position'); ?></div>
+     </div>
+
+     <div class="col-sm-2">
+       <div class="text-gray-800">
+         <?php echo "<button  style='margin-top:19px;' type='submit' class='btn btn-success btn-icon-split' name='submit' href='" . base_url() . "admissioncontrol/add_user/#demo'>" ?>
+         <span class="icon text-white-100">
+           <i class="fas fa-arrow-right"></i>
+           Add User
+         </span>
+         </button>
+       </div>
+
      </div>
    
       <div class="col-sm-2">

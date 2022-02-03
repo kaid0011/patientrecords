@@ -92,20 +92,29 @@
  			   </div>
 
 
-              <div style="margin-bottom:17px;">
-        <div class="row no-gutters">
-                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Date Added</div> 
-                </div>
-        <div class="h5 mb-1 font-weight-bold text-gray-800"><input class="form-control <?= (form_error('e_date') == "" ? '':'is-invalid') ?>" type="date" name="e_date" value="<?php echo $get_data->pr_date; ?>"></div>
-        <div class="text-danger text-center"><?php echo form_error('e_date'); ?></div>
-        </div>
-               
-           
-           <button style="margin-left: 100px;" type="submit" class="btn btn-success btn-icon-split" name="submit">
-                 <span class="icon text-white-100">
-                  <i class="fas fa-arrow-right"></i>  
-                    Save
-                  </span>
-                </button>
-  
-  <?php echo form_close(); ?>
+   <div style="margin-bottom:18px;">
+      <div class="row no-gutters">
+         <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Weight</div>
+      </div>
+      <div class="h5 mb-1 font-weight-bold text-gray-800"><input class="form-control  <?= (form_error('e_weight') == "" ? '' : 'is-invalid') ?>" type="text" name="e_weight" value="<?php echo $get_data->pr_weight; ?>"></div>
+      <div class="text-danger text-center"><?php echo form_error('e_weight'); ?></div>
+   </div>
+
+   <div style="margin-bottom:17px;">
+      <div class="row no-gutters">
+         <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Date Added</div>
+      </div>
+      <div class="h5 mb-1 font-weight-bold text-gray-800"><input class="form-control <?= (form_error('e_date') == "" ? '' : 'is-invalid') ?>" type="date" name="e_date" value="<?php echo $get_data->pr_date; ?>"></div>
+      <div class="text-danger text-center"><?php echo form_error('e_date'); ?></div>
+   </div>
+
+   <div class="d-flex justify-content-end">
+      <button type="submit" class="btn btn-success btn-icon-split" name="submit">
+         <span class="icon text-white-100">
+            <i class="fas fa-arrow-right"></i>
+            Save
+         </span>
+      </button>
+   </div>
+
+<?php echo form_close(); ?>

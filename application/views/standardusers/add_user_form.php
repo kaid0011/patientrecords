@@ -15,9 +15,8 @@
         <div class="h5 mb-1 font-weight-bold text-gray-800"><input class="form-control <?= (form_error('a_user') == "" ? '':'is-invalid') ?>" type="text" name="a_user" placeholder="Enter Username" value="<?php echo set_value('a_user'); ?>" ></div>
          <div class="text-danger text-center"><?php echo form_error('a_user'); ?></div>
                </div>
-
 </div>
-<div class="col-sm-3">
+<div class="col-sm-2">
                 <div style="margin-bottom:17px;">
                 <div class="row no-gutters">
                  <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
@@ -27,10 +26,9 @@
         <div class="h5 mb-1 font-weight-bold text-gray-800"><input class="form-control  <?= (form_error('a_pass') == "" ? '':'is-invalid') ?>" type="password" name="a_pass" placeholder="Enter Password" value="<?php echo set_value('a_pass'); ?>" ></div>
          <div class="text-danger text-center"><?php echo form_error('a_pass'); ?></div><!-- dito sya yung a_pass galing -->
                </div>
-
 </div>
 
-<div class="col-sm-3  ">
+<div class="col-sm-2  ">
    <div style="margin-bottom:17px;">
                 <div class="row no-gutters">
                  <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
@@ -40,7 +38,19 @@
         <div class="h5 mb-1 font-weight-bold text-gray-800"><input class="form-control  <?= (form_error('a_fname') == "" ? '':'is-invalid') ?>" type="text" name="a_fname" placeholder="Enter Firstname" value="<?php echo set_value('a_fname'); ?>" ></div>
          <div class="text-danger text-center"><?php echo form_error('a_fname'); ?></div>
                </div>
- </div>
+</div>
+
+<div class="col-sm-2  ">
+   <div style="margin-bottom:17px;">
+                <div class="row no-gutters">
+                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
+                   Lastname
+                 </div>   
+                </div>
+        <div class="h5 mb-1 font-weight-bold text-gray-800"><input class="form-control  <?= (form_error('a_lname') == "" ? '':'is-invalid') ?>" type="text" name="a_lname" placeholder="Enter Lastname" value="<?php echo set_value('a_lname'); ?>" ></div>
+         <div class="text-danger text-center"><?php echo form_error('a_lname'); ?></div>
+               </div>
+</div>
    <div class="col-sm-2">
                 <div class="row no-gutters">
                   <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">

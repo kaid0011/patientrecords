@@ -82,7 +82,7 @@ $year = date("Y", strtotime("+8 HOURS"));
     if($this->Record_model->patient_record($data)){
   
 		$data['title'] = 'Add Patient Data';
-$data['topbar'] = 'navbar-default';
+    $data['topbar'] = 'navbar-default';
 		$data['main_view'] = 'admission/opdform';
         
     $this->session->set_flashdata('patientrecord_success', 'Patient Data Added');
@@ -96,41 +96,36 @@ $data['topbar'] = 'navbar-default';
 
 
 
-public function edit_form($pr_id){
+public function edit_form($pr_id)
+{
+  $data['title'] = 'Edit Patient Form';
 
+  $data['get_civilstat'] = $this->Record_model->get_civilstat();
+  $data['get_gender'] = $this->Record_model->get_gender();
+  $data['pr_id'] = $this->Record_model->get_patient_data($pr_id);
+  $data['topbar'] = 'navbar-default';
+  $data['main_view'] = 'admission/edit_opd_view';
 
-
-$data['title'] = 'Edit Patient Form';
-
-$data['get_civilstat'] = $this->Record_model->get_civilstat();
-$data['get_gender'] = $this->Record_model->get_gender();
-$data['pr_id'] = $this->Record_model->get_patient_data($pr_id);
-$data['topbar'] = 'navbar-default';
-$data['main_view'] = 'admission/edit_opd_view';
-
-$this->load->view('layouts/central_template', $data);
+  $this->load->view('layouts/central_template', $data);
 
 
 }
 
-
-
-
 public function edit_opd_form($pr_id) {
 
-$this->form_validation->set_rules('date', 'Date', 'trim|required');
-$this->form_validation->set_rules('lname', 'Lastname', 'trim|required|alpha');
-$this->form_validation->set_rules('fname', 'Firstname', 'trim|required|alpha');
-$this->form_validation->set_rules('middlen', 'Middlename', 'trim|required|alpha');
-$this->form_validation->set_rules('address', 'Address', 'required');
-$this->form_validation->set_rules('occup', 'Occupation', 'required');
-$this->form_validation->set_rules('age', 'Age', 'trim|required|numeric|min_length[2]|max_length[2]');
-$this->form_validation->set_rules('gen', 'Gender', 'trim|required',array('required'=>'Please select gender'));
-$this->form_validation->set_rules('birthplace', 'Birthplace', 'required');
-$this->form_validation->set_rules('datebirth', 'Date of Birth', 'trim|required');
-$this->form_validation->set_rules('civilstat', 'Civil Status', 'trim|required');
-$this->form_validation->set_rules('religion', 'Religion', 'trim|required');
-$this->form_validation->set_rules('number', 'Mobile/Tel No.', 'trim|required|min_length[11]|max_length[11]');
+  $this->form_validation->set_rules('date', 'Date', 'trim|required');
+  $this->form_validation->set_rules('lname', 'Lastname', 'trim|required|alpha');
+  $this->form_validation->set_rules('fname', 'Firstname', 'trim|required|alpha');
+  $this->form_validation->set_rules('middlen', 'Middlename', 'trim|required|alpha');
+  $this->form_validation->set_rules('address', 'Address', 'required');
+  $this->form_validation->set_rules('occup', 'Occupation', 'required');
+  $this->form_validation->set_rules('age', 'Age', 'trim|required|numeric|min_length[2]|max_length[2]');
+  $this->form_validation->set_rules('gen', 'Gender', 'trim|required',array('required'=>'Please select gender'));
+  $this->form_validation->set_rules('birthplace', 'Birthplace', 'required');
+  $this->form_validation->set_rules('datebirth', 'Date of Birth', 'trim|required');
+  $this->form_validation->set_rules('civilstat', 'Civil Status', 'trim|required');
+  $this->form_validation->set_rules('religion', 'Religion', 'trim|required');
+  $this->form_validation->set_rules('number', 'Mobile/Tel No.', 'trim|required|min_length[11]|max_length[11]');
 
 
 if($this->form_validation->run() == FALSE) {

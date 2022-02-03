@@ -149,50 +149,111 @@ si $data ipapasa nya yung mga dala nya sa 'layouts/central_template' then open n
 
 
 
-public function add_user(){
+public function add_user()
+{
 
-$this->form_validation->set_rules('a_user', 'Username', 'trim|required|is_unique[standardusers.su_user]', array('is_unique'=>'Username already exist!'));
-$this->form_validation->set_rules('a_pass', 'Password', 'trim|required|min_length[9]');
-$this->form_validation->set_rules('a_fname', 'Firstname', 'trim|required|alpha');
-$this->form_validation->set_rules('a_position', 'Position', 'trim|required', array('required'=>'Please select position'));
+   $this->form_validation->set_rules('a_user', 'Username', 'trim|required|is_unique[standardusers.su_user]', array('is_unique'=>'Username already exist!'));
+   $this->form_validation->set_rules('a_pass', 'Password', 'trim|required|min_length[9]');
+   $this->form_validation->set_rules('a_fname', 'FullName', 'trim|required|alpha');
+   $this->form_validation->set_rules('a_position', 'Position', 'trim|required', array('required'=>'Please select position'));
 
-if($this->form_validation->run() == FALSE){
+   if($this->form_validation->run() == FALSE){
 
-$data['get_user'] = $this->Addusers_model->get_users();
+   $data['get_user'] = $this->Addusers_model->get_users();
 
-$data['title'] = 'Add Users';
-$data['topbar'] = 'standardusers/addusernavbar';
-$data['addform'] = 'standardusers/add_user_form';
-$data['main_view'] = "standardusers/add_user_view";
+   $data['title'] = 'Add Users';
+   $data['topbar'] = 'standardusers/addusernavbar';
+   $data['addform'] = 'standardusers/add_user_form';
+   $data['main_view'] = "standardusers/add_user_view";
 
-$this->load->view('layouts/central_template', $data);
-
-
-} else {
-
-    $user_id = $this->session->userdata('u_id');
-
-   if($this->Addusers_model->add_user($user_id)){
-
-   	$data['get_user'] = $this->Addusers_model->get_users();
-
-      $data['title'] = 'Add Users';
-      $data['topbar'] = 'standardusers/addusernavbar';
-      $data['addform'] = 'standardusers/add_user_form';
-      $data['main_view'] = "standardusers/add_user_view";
-  
-      $this->session->set_flashdata('add_user', 'User Added');
-      $this->load->view('layouts/central_template', $data);
+   $this->load->view('layouts/central_template', $data);
 
 
+   } 
+   else 
+   {
+
+      $user_id = $this->session->userdata('u_id');
+
+      if($this->Addusers_model->add_user($user_id))
+      {
+
+         $data['get_user'] = $this->Addusers_model->get_users();
+
+         $data['title'] = 'Add Users';
+         $data['topbar'] = 'standardusers/addusernavbar';
+         $data['addform'] = 'standardusers/add_user_form';
+         $data['main_view'] = "standardusers/add_user_view";
+         
+         // $verifkey = random_string('numeric', 6);
+         redirect('addusercontrol/emailverification');
+         // $this->session->set_flashdata('add_user', 'User Added');
+         $this->load->view('layouts/central_template', $data);
+
+
+      }
    }
-
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                       /// TRIAL NG EMAIL 123
 
-}
+public function emailverification()
+{
+   $user_id = $this->session->userdata('u_id');
+   $verifkey = '745213';
+   $fname = $this->session->userdata('a_fname');
+   $lname = $this->session->userdata('a_lname');
+   $position = $this->session->userdata('a_position');
+   $subject = "Verify Standard User";
+   $message = "
+            Admin!
+            
+            This user ID ".$user_id." registered a standard user with the following details:
+
+            Doctor's First Name: ".$fname."
+            Doctor's Last Name: ".$lname."
+            Doctor's Position: ".$position."
+
+            If this was you, enter the given verification code below:
+            ".$verifkey."
+            ";
+            $to = 'lxedpabalan@gmail.com';
+
+   $config = array(
+                'protocol'  => 'smtp',
+                'smtp_host' => 'smtp.gmail.com',
+                'smtp_port' =>  '587',
+                'smtp_user' => 'pediatopia.prms@gmail.com',
+                'smtp_pass' => 'utehpyyorsewcmly',
+                'mailtype'  => 'html', 
+                'charset'   => 'iso-8859-1'
+            );
+            
+            $this->load->library('email');
+            $this->email->initialize($config);
+            $this->email->set_newline("\r\n");
+            $this->email->from('no-reply@gmail.com', 'Pediatopia Clinic');
+            $this->email->to($to);
+            $this->email->subject($subject);
+            $this->email->message($message);
+            $send = $this->email->send();
+
+            if($send)
+            {
+               $data['get_user'] = $this->Addusers_model->get_users();
+
+               $data['title'] = 'Add Users';
+               $data['topbar'] = 'standardusers/addusernavbar';
+               $data['addform'] = 'standardusers/add_user_form';
+               $data['main_view'] = "standardusers/add_user_view";
+                $this->load->view('layouts/central_template', $data);
+            }
+        }
 
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 public function edit_user($user_id){
 
@@ -255,14 +316,11 @@ public function delete_user($user_id){
       $this->session->set_flashdata('delete_user', 'User Deleted');
       redirect('addusercontrol/adduserview', $data);
 
-
-
  }
 
 
 
 }
-
 
 
 public function adddoctorview(){
@@ -312,7 +370,7 @@ $data = array(
 
 );
    
-if($this->Addusers_model->add_doctor_data($data)){
+if($this->Addusers_model->add_doctor_data($data, )){
  
 
    $data['get_user_id'] = $this->Addusers_model->get_users_id($user_id);
@@ -343,79 +401,19 @@ public function delete_doctor($doctor_id){
 
  if($this->Addusers_model->delete_doctor_data($doctor_id)){
 
-  $data['get_field'] = $this->Addusers_model->get_fieldofphysician();
- $data['get_doctor'] = $this->Addusers_model->get_doctor();
- $data['title'] = 'Delete Doctor';
- $data['adddoc'] = 'standardusers/add_doctor_form';
- $data['topbar'] = 'standardusers/addusernavbar';
-$data['main_view'] = 'standardusers/add_doctor_view';
+   $data['get_field'] = $this->Addusers_model->get_fieldofphysician();
+   $data['get_doctor'] = $this->Addusers_model->get_doctor();
+   $data['title'] = 'Delete Doctor';
+   $data['adddoc'] = 'standardusers/add_doctor_form';
+   $data['topbar'] = 'standardusers/addusernavbar';
+   $data['main_view'] = 'standardusers/add_doctor_view';
 
- $this->session->set_flashdata('delete_doctor', 'Physician Deleted');
-$this->load->view('layouts/central_template', $data);
-
+   $this->session->set_flashdata('delete_doctor', 'Physician Deleted');
+   $this->load->view('layouts/central_template', $data);
 
  }
 
-
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
- ?>
+?>

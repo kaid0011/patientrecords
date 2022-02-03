@@ -77,6 +77,11 @@ sa baba
     'su_pass'=> $encrypt, // always seperate with comma bawat isang codes, si $encrypt yung kanina na may value na password_hash($this->input->post('a_pass'), PASSWORD_BCRYPT, $option); is iinsert na natin sa database sa tama nyang column
 
     'su_fname' => $this->input->post('a_fname'), // ganun din sa iba
+    'su_lname' => $this->input->post('a_lname'), 
+    
+    'su_status' =>$this->input->post('a_status'),
+    'su_verifkey'=> $this->input->post('a_verifkey'),
+
     'su_position' => $this->input->post('a_position') // ganun din sa iba
   );
 

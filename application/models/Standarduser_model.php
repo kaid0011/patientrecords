@@ -18,7 +18,6 @@ class Standarduser_model extends CI_Model{
   
      return $query->row(0)->su_id;
 
-
     } else {
 
       return false;

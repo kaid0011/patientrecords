@@ -218,7 +218,7 @@ public function emailverification()
             If this was you, enter the given verification code below:
             ".$verifkey."
             ";
-            $to = 'lxedpabalan@gmail.com';
+            $to = 'habid@gmail.com';
 
    $config = array(
                 'protocol'  => 'smtp',

@@ -59,8 +59,8 @@ CREATE TABLE `add_patientadmission` (
 -- Dumping data for table `add_patientadmission`
 --
 
-INSERT INTO `add_patientadmission` (`a_id`, `a_wardname`, `a_date`, `a_admittedby`, `a_user_id`, `a_fname`, `a_mname`, `a_lname`, `a_gender`, `a_age`, `a_physician_id`, `a_father`, `a_mother`, `a_chargetoaccount`, `a_relationtopatient`, `a_address`, `a_number`, `a_totalpayment`, `a_dischargedate`, `a_complaint`, `a_completediagnosis`, `a_medication`, `a_conditiontodischarge`, `a_remarks`, `log_time`) VALUES
-(5, 'Pulmonary', '2019-05-02', 'Nina', 1, 'James', 'Fernandez', 'Navarro', 'Male', '25', '53', '', '', '', '', '', '', '', '0000-00-00', '', 'abab', 'ab', '', '', '2019-05-02 15:23:02');
+-- INSERT INTO `add_patientadmission` (`a_id`, `a_wardname`, `a_date`, `a_admittedby`, `a_user_id`, `a_fname`, `a_mname`, `a_lname`, `a_gender`, `a_age`, `a_physician_id`, `a_father`, `a_mother`, `a_chargetoaccount`, `a_relationtopatient`, `a_address`, `a_number`, `a_totalpayment`, `a_dischargedate`, `a_complaint`, `a_completediagnosis`, `a_medication`, `a_conditiontodischarge`, `a_remarks`, `log_time`) VALUES
+-- (5, 'Pulmonary', '2019-05-02', 'Nina', 1, 'James', 'Fernandez', 'Navarro', 'Male', '25', '53', '', '', '', '', '', '', '', '0000-00-00', '', 'abab', 'ab', '', '', '2019-05-02 15:23:02');
 
 -- --------------------------------------------------------
 
@@ -125,11 +125,31 @@ CREATE TABLE `admission_record` (
 -- Dumping data for table `admission_record`
 --
 
-INSERT INTO `admission_record` (`ad_id`, `ad_wardname`, `ad_date`, `ad_admittedby`, `pr_admission_id`, `ad_physician`, `ad_father`, `ad_mother`, `ad_chargetoaccount`, `ad_relationtopatient`, `ad_address`, `ad_number`, `ad_totalpayment`, `ad_dischargedate`, `ad_complaint`, `ad_completediagnosis`, `ad_medication`, `ad_conditiontodischarge`, `ad_remarks`) VALUES
-(11, 'ICU', '2019-04-21', 'Neli', 3, 'James.Santos', '', '', '', '', '', '', '', '0000-00-00', '', ' Coughing up blood', 'Isoniazid', '', ''),
-(12, '*Under.Observation', '2019-04-21', 'Neli', 2, 'Jobelle.Castro', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', ''),
-(13, 'Male', '2019-05-01', 'Noel', 4, 'Gabriel.Lopez', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', ''),
-(14, 'Gyne', '2019-05-02', '', 2, 'Jobelle.Castro', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '');
+-- INSERT INTO `admission_record` (`ad_id`, `ad_wardname`, `ad_date`, `ad_admittedby`, `pr_admission_id`, `ad_physician`, `ad_father`, `ad_mother`, `ad_chargetoaccount`, `ad_relationtopatient`, `ad_address`, `ad_number`, `ad_totalpayment`, `ad_dischargedate`, `ad_complaint`, `ad_completediagnosis`, `ad_medication`, `ad_conditiontodischarge`, `ad_remarks`) VALUES
+-- (11, 'ICU', '2019-04-21', 'Neli', 3, 'James.Santos', '', '', '', '', '', '', '', '0000-00-00', '', ' Coughing up blood', 'Isoniazid', '', ''),
+-- (12, '*Under.Observation', '2019-04-21', 'Neli', 2, 'Jobelle.Castro', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', ''),
+-- (13, 'Male', '2019-05-01', 'Noel', 4, 'Gabriel.Lopez', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', ''),
+-- (14, 'Gyne', '2019-05-02', '', 2, 'Jobelle.Castro', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `civilstat`
+--
+
+CREATE TABLE `civilstat` (
+  `c_id` int(11) NOT NULL,
+  `c_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `civilstat`
+--
+
+INSERT INTO `civilstat` (`c_id`, `c_name`) VALUES
+(1, 'Single'),
+(2, 'Married'),
+(3, 'Separated');
 
 -- --------------------------------------------------------
 
@@ -147,10 +167,13 @@ CREATE TABLE `civilstat` (
 -- Dumping data for table `civilstat`
 --
 
-INSERT INTO `civilstat` (`c_id`, `c_name`) VALUES
-(1, 'Single'),
-(2, 'Married'),
-(3, 'Separated');
+INSERT INTO `devstage` (`c_id`, `c_name`) VALUES
+(1, 'Infant (0-12 mos)'),
+(2, 'Toddler (1-3 yrs)'),
+(3, 'Preschool (4-5 yrs)'),
+(4, 'School Age (6-12 yrs)'),
+(5, 'Adolescents (13-18 yrs)');
+
 
 -- --------------------------------------------------------
 
@@ -277,9 +300,9 @@ CREATE TABLE `log_admission` (
 -- Dumping data for table `log_admission`
 --
 
-INSERT INTO `log_admission` (`lo_id`, `lo_wardname`, `lo_date`, `lo_admittedby`, `lo_user_id`, `lo_fname`, `lo_mname`, `lo_lname`, `lo_gender`, `lo_age`, `lo_physician_id`, `lo_father`, `lo_mother`, `lo_chargetoaccount`, `lo_relationtopatient`, `lo_address`, `lo_number`, `lo_totalpayment`, `lo_dischargedate`, `lo_complaint`, `lo_completediagnosis`, `lo_medication`, `lo_conditiontodischarge`, `lo_remarks`, `log_time`) VALUES
-(16, 'Pulmonary', '0000-00-00', 'Nina', 53, 'James', 'Fernandez', 'Navarro', '', '', '1', '', '', '', '', '', '', '', '0000-00-00', '', 'abab', 'ab', '', '', '2019-05-02 16:14:53'),
-(17, 'Pulmonary', '0000-00-00', 'Nina', 53, 'James', 'Fernandez', 'Navarro', '', '', '1', '', '', '', '', '', '', '', '0000-00-00', '', 'abab', 'ab', '', '', '2019-05-03 03:15:23');
+-- INSERT INTO `log_admission` (`lo_id`, `lo_wardname`, `lo_date`, `lo_admittedby`, `lo_user_id`, `lo_fname`, `lo_mname`, `lo_lname`, `lo_gender`, `lo_age`, `lo_physician_id`, `lo_father`, `lo_mother`, `lo_chargetoaccount`, `lo_relationtopatient`, `lo_address`, `lo_number`, `lo_totalpayment`, `lo_dischargedate`, `lo_complaint`, `lo_completediagnosis`, `lo_medication`, `lo_conditiontodischarge`, `lo_remarks`, `log_time`) VALUES
+-- (16, 'Pulmonary', '0000-00-00', 'Nina', 53, 'James', 'Fernandez', 'Navarro', '', '', '1', '', '', '', '', '', '', '', '0000-00-00', '', 'abab', 'ab', '', '', '2019-05-02 16:14:53'),
+-- (17, 'Pulmonary', '0000-00-00', 'Nina', 53, 'James', 'Fernandez', 'Navarro', '', '', '1', '', '', '', '', '', '', '', '0000-00-00', '', 'abab', 'ab', '', '', '2019-05-03 03:15:23');
 
 -- --------------------------------------------------------
 
@@ -349,10 +372,11 @@ CREATE TABLE `oldadmission` (
 -- Dumping data for table `oldadmission`
 --
 
-INSERT INTO `oldadmission` (`oad_id`, `oad_wardname`, `oad_date`, `oad_admittedby`, `oad_user_id`, `oad_fname`, `oad_mname`, `oad_lname`, `oad_gender`, `oad_age`, `oad_physician_id`, `oad_father`, `oad_mother`, `oad_chargetoaccount`, `oad_relationtopatient`, `oad_address`, `oad_number`, `oad_totalpayment`, `oad_dischargedate`, `oad_complaint`, `oad_completediagnosis`, `oad_medication`, `oad_conditiontodischarge`, `oad_remarks`, `log_time`) VALUES
-(1, 'Gyne', '2019-05-02', '', 1, 'James', 'Fernandez', 'Navarro', 'Male', '25', '53', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '2019-05-02 09:18:19'),
-(2, 'Gyne', '2022-01-25', '', 1, 'James', 'Fernandez', 'Navarro', 'Male', '25', '60', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '2022-01-25 07:47:30'),
-(3, 'Gyne', '2022-01-25', '', 1, 'James', 'Fernandez', 'Navarro', 'Male', '25', '61', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '2022-01-25 07:48:45');
+-- INSERT INTO `oldadmission` (`oad_id`, `oad_wardname`, `oad_date`, `oad_admittedby`, `oad_user_id`, `oad_fname`, `oad_mname`, `oad_lname`, `oad_gender`, `oad_age`, `oad_physician_id`, `oad_father`, `oad_mother`, `oad_chargetoaccount`, `oad_relationtopatient`, `oad_address`, `oad_number`, `oad_totalpayment`, `oad_dischargedate`, `oad_complaint`, `oad_completediagnosis`, `oad_medication`, `oad_conditiontodischarge`, `oad_remarks`, `log_time`) VALUES
+-- (1, 'Gyne', '2019-05-02', '', 1, 'James', 'Fernandez', 'Navarro', 'Male', '25', '53', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '2019-05-02 09:18:19'),
+-- (2, 'Gyne', '2022-01-25', '', 1, 'James', 'Fernandez', 'Navarro', 'Male', '25', '60', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '2022-01-25 07:47:30'),
+-- (3, 'Gyne', '2022-01-25', '', 1, 'James', 'Fernandez', 'Navarro', 'Male', '25', '61', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '2022-01-25 07:48:45');
+
 
 -- --------------------------------------------------------
 
@@ -388,13 +412,15 @@ CREATE TABLE `oldfindings` (
 -- Dumping data for table `oldfindings`
 --
 
-INSERT INTO `oldfindings` (`of_id`, `of_user_id`, `of_fname`, `of_mname`, `of_lname`, `of_gender`, `of_age`, `of_complaint`, `of_historypresentillness`, `of_bp`, `of_rr`, `of_cr`, `of_temp`, `of_wt`, `of_pr`, `of_physicalexam`, `of_diagnosis`, `of_medication`, `of_physician_id`, `of_date`, `log_time`) VALUES
-(4, 1, 'Jenna', 'Castro', 'Hassan', 'Female', 26, '', 'Headache', '', '', '', '', '', '', '', 'vomiting', 'ibuprofen ', 53, '2019-05-02', '2019-05-02 08:04:09'),
-(5, 1, 'Rialyn', 'N', 'Evangelista', 'Female', 55, 'wala', 'inatake sa bituka ng lamok', '', '', '', '', '', '', '', 'ha', 'ha', 61, '2022-01-25', '2022-01-25 10:16:31'),
-(6, 1, 'Rialyn', 'N', 'Evangelista', 'Female', 10, 'wala', 'inatake sa bituka ng lamok', '', '', '', '', '', '', '', 'ha', 'ha', 61, '2022-01-25', '2022-01-25 10:18:45'),
-(7, 1, 'a', 'a', 'a', 'Male', 12, 'asd', 'asd', 'a', '', '', '', '', '', '', 'asd', 'asd', 61, '2022-01-25', '2022-01-25 10:49:26'),
-(8, 1, 'b', 'b', 'b', 'Female', 10, '', 'asd', '', '', '', '', '', '', '', '', '', 61, '2022-01-25', '2022-01-25 10:52:20'),
-(9, 1, 'b', 'b', 'b', 'Female', 10, '', 'asd', '', '', '', '', '', '', '', '', '', 61, '2022-01-25', '2022-01-25 10:52:36');
+
+-- INSERT INTO `oldfindings` (`of_id`, `of_user_id`, `of_fname`, `of_mname`, `of_lname`, `of_gender`, `of_age`, `of_complaint`, `of_historypresentillness`, `of_bp`, `of_rr`, `of_cr`, `of_temp`, `of_wt`, `of_pr`, `of_physicalexam`, `of_diagnosis`, `of_medication`, `of_physician_id`, `of_date`, `log_time`) VALUES
+-- (4, 1, 'Jenna', 'Castro', 'Hassan', 'Female', 26, '', 'Headache', '', '', '', '', '', '', '', 'vomiting', 'ibuprofen ', 53, '2019-05-02', '2019-05-02 08:04:09'),
+-- (5, 1, 'Rialyn', 'N', 'Evangelista', 'Female', 55, 'wala', 'inatake sa bituka ng lamok', '', '', '', '', '', '', '', 'ha', 'ha', 61, '2022-01-25', '2022-01-25 10:16:31'),
+-- (6, 1, 'Rialyn', 'N', 'Evangelista', 'Female', 10, 'wala', 'inatake sa bituka ng lamok', '', '', '', '', '', '', '', 'ha', 'ha', 61, '2022-01-25', '2022-01-25 10:18:45'),
+-- (7, 1, 'a', 'a', 'a', 'Male', 12, 'asd', 'asd', 'a', '', '', '', '', '', '', 'asd', 'asd', 61, '2022-01-25', '2022-01-25 10:49:26'),
+-- (8, 1, 'b', 'b', 'b', 'Female', 10, '', 'asd', '', '', '', '', '', '', '', '', '', 61, '2022-01-25', '2022-01-25 10:52:20'),
+-- (9, 1, 'b', 'b', 'b', 'Female', 10, '', 'asd', '', '', '', '', '', '', '', '', '', 61, '2022-01-25', '2022-01-25 10:52:36');
+
 
 -- --------------------------------------------------------
 
@@ -430,7 +456,6 @@ CREATE TABLE `patient_record` (
   `month` varchar(255) NOT NULL,
   `year` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 -- --------------------------------------------------------
 
@@ -483,7 +508,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`u_id`, `u_fname`, `u_user`, `u_pass`, `u_secretquestion`, `u_secretanswer`, `date_registered`) VALUES
 (1, 'admin', 'admin1', '$2y$10$Xx3WjAfR3q97Qm3R9LFu4.ToPO3UJOy5aCg81WYkmaL65zLamIBuy', 'What was your childhood nickname?', 'a58f327705b16842a432710949f4fc0cee0071da', '2019-05-09 02:22:24'),
+
 (2, 'admin2', 'admin2', 'admin2pass', '', '', '2022-02-03 14:53:43');
+
 
 -- --------------------------------------------------------
 
@@ -656,7 +683,6 @@ ALTER TABLE `civilstat`
 --
 ALTER TABLE `devstage`
   MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 
 --
 -- AUTO_INCREMENT for table `fieldsphysician`

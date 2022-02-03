@@ -154,16 +154,17 @@ INSERT INTO `civilstat` (`c_id`, `c_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `devstage`
+-- Table structure for table `civilstat`
+
 --
 
-CREATE TABLE `devstage` (
+CREATE TABLE `civilstat` (
   `c_id` int(11) NOT NULL,
   `c_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `devstage`
+-- Dumping data for table `civilstat`
 --
 
 INSERT INTO `devstage` (`c_id`, `c_name`) VALUES
@@ -172,6 +173,32 @@ INSERT INTO `devstage` (`c_id`, `c_name`) VALUES
 (3, 'Preschool (4-5 yrs)'),
 (4, 'School Age (6-12 yrs)'),
 (5, 'Adolescents (13-18 yrs)');
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `devstage`
+
+--
+
+CREATE TABLE `civilstat` (
+  `c_id` int(11) NOT NULL,
+  `c_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `civilstat`
+--
+
+
+INSERT INTO `devstage` (`c_id`, `c_name`) VALUES
+(1, 'Infant (0-12 mos)'),
+(2, 'Toddler (1-3 yrs)'),
+(3, 'Preschool (4-5 yrs)'),
+(4, 'School Age (6-12 yrs)'),
+(5, 'Adolescents (13-18 yrs)');
+
 
 -- --------------------------------------------------------
 
@@ -350,6 +377,7 @@ CREATE TABLE `oldadmission` (
 -- (2, 'Gyne', '2022-01-25', '', 1, 'James', 'Fernandez', 'Navarro', 'Male', '25', '60', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '2022-01-25 07:47:30'),
 -- (3, 'Gyne', '2022-01-25', '', 1, 'James', 'Fernandez', 'Navarro', 'Male', '25', '61', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '2022-01-25 07:48:45');
 
+
 -- --------------------------------------------------------
 
 --
@@ -384,6 +412,7 @@ CREATE TABLE `oldfindings` (
 -- Dumping data for table `oldfindings`
 --
 
+
 -- INSERT INTO `oldfindings` (`of_id`, `of_user_id`, `of_fname`, `of_mname`, `of_lname`, `of_gender`, `of_age`, `of_complaint`, `of_historypresentillness`, `of_bp`, `of_rr`, `of_cr`, `of_temp`, `of_wt`, `of_pr`, `of_physicalexam`, `of_diagnosis`, `of_medication`, `of_physician_id`, `of_date`, `log_time`) VALUES
 -- (4, 1, 'Jenna', 'Castro', 'Hassan', 'Female', 26, '', 'Headache', '', '', '', '', '', '', '', 'vomiting', 'ibuprofen ', 53, '2019-05-02', '2019-05-02 08:04:09'),
 -- (5, 1, 'Rialyn', 'N', 'Evangelista', 'Female', 55, 'wala', 'inatake sa bituka ng lamok', '', '', '', '', '', '', '', 'ha', 'ha', 61, '2022-01-25', '2022-01-25 10:16:31'),
@@ -391,6 +420,7 @@ CREATE TABLE `oldfindings` (
 -- (7, 1, 'a', 'a', 'a', 'Male', 12, 'asd', 'asd', 'a', '', '', '', '', '', '', 'asd', 'asd', 61, '2022-01-25', '2022-01-25 10:49:26'),
 -- (8, 1, 'b', 'b', 'b', 'Female', 10, '', 'asd', '', '', '', '', '', '', '', '', '', 61, '2022-01-25', '2022-01-25 10:52:20'),
 -- (9, 1, 'b', 'b', 'b', 'Female', 10, '', 'asd', '', '', '', '', '', '', '', '', '', 61, '2022-01-25', '2022-01-25 10:52:36');
+
 
 -- --------------------------------------------------------
 
@@ -409,10 +439,11 @@ CREATE TABLE `patient_record` (
   `pr_age` int(11) NOT NULL,
   `pr_bdate` date NOT NULL,
   `pr_bplace` varchar(255) NOT NULL,
-  `pr_devstage` varchar(255) NOT NULL,
+  `pr_civilstat` varchar(255) NOT NULL,
   `pr_gen` varchar(255) NOT NULL,
   `pr_number` varchar(255) NOT NULL,
   `pr_religion` varchar(255) NOT NULL,
+
   `pr_nationality` varchar(255) NOT NULL,
   `pr_height` int(11) NOT NULL,
   `pr_weight` int(11) NOT NULL,
@@ -421,6 +452,7 @@ CREATE TABLE `patient_record` (
   `pr_grdnrelation` varchar(255) NOT NULL,
   `pr_schname` varchar(255) NOT NULL,
   `pr_schaddress` varchar(255) NOT NULL,
+
   `month` varchar(255) NOT NULL,
   `year` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -476,7 +508,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`u_id`, `u_fname`, `u_user`, `u_pass`, `u_secretquestion`, `u_secretanswer`, `date_registered`) VALUES
 (1, 'admin', 'admin1', '$2y$10$Xx3WjAfR3q97Qm3R9LFu4.ToPO3UJOy5aCg81WYkmaL65zLamIBuy', 'What was your childhood nickname?', 'a58f327705b16842a432710949f4fc0cee0071da', '2019-05-09 02:22:24'),
-(2, 'admin2', 'admin2', 'admin2pass', '', '', '2022-02-03 14:53:43')git st;
+
+(2, 'admin2', 'admin2', 'admin2pass', '', '', '2022-02-03 14:53:43');
+
 
 -- --------------------------------------------------------
 
@@ -531,14 +565,16 @@ ALTER TABLE `admission_record`
 
 --
 -- Indexes for table `civilstat`
+
 --
 ALTER TABLE `civilstat`
   ADD PRIMARY KEY (`c_id`);
 
 --
 -- Indexes for table `devstage`
+
 --
-ALTER TABLE `devstage`
+ALTER TABLE `civilstat`
   ADD PRIMARY KEY (`c_id`);
 
 --
@@ -637,6 +673,7 @@ ALTER TABLE `admission_record`
 
 --
 -- AUTO_INCREMENT for table `civilstat`
+
 --
 ALTER TABLE `civilstat`
   MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;

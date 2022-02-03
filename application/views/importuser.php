@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="shortcut icon" href="<?php echo base_url(); ?>img/rizal.png" />
+  <link rel="shortcut icon" href="<?php echo base_url(); ?>img/pediatopia.png" />
 
   <title><?php echo $title ?></title>
 
@@ -35,9 +35,11 @@
               <div class="text-center">
                 <br>
                 <h6><b>Welcome to </b></h6>
+
                 <h6><b>PediaTopia Clinic</b></h6>
                 <h1 class="h4 text-gray-900">Patient Record Management System </h1>
                 <h4 class="text-center">Create User</h4>
+
               </div>
 
               <hr>

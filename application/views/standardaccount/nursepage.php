@@ -1,4 +1,5 @@
 
+
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <!DOCTYPE html>
@@ -12,6 +13,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="shortcut icon" href="<?php echo base_url(); ?>img/pediatopia.png" />
+
   <title><?php echo $title ?></title>
 
   <!-- Custom fonts for this template-->
@@ -23,70 +25,133 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
  <script src="<?php echo base_url(); ?>assets/jquery-3.3.1.min.js"></script>
 
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/loader.css">
  
-</head>
+
+ <style>
+   .sidenav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+
+
+}
+
+
+.main {
+  margin-left: 225px; /* Same as the width of the sidenav */
+
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+</style>
+
+
+
+</head> 
 
 
 <body id="page-top">
 
+
  <?php if($this->session->userdata('logged_in')): ?>
  
- <div class="alert-success">
-   
-    <?php if($this->session->flashdata('login_success')): ?>
  
-  <?php echo $this->session->flashdata('login_success'); ?>
+  <?php if($this->session->flashdata('login_success')): ?>        
+ <?php echo "<div class='alert-success text-center'>".$this->session->flashdata('login_success')."</div>"  ?>
+   <?php endif; ?>
+</div>
+          
+  <?php if($this->session->flashdata('sec_pass')): ?>        
+ <?php echo "<div class='alert-success text-center'>".$this->session->flashdata('sec_pass')."</div>"  ?>
+   <?php endif; ?>
+</div>
+          
 
- <?php endif; ?>
 
- </div>
   <!-- Page Wrapper -->
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class=" navbar-nav bg-gradient-success sidenav sidebar sidebar-dark accordion " id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>indexcontrol/newaccountquestion">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center"  href="#">
         <div class="sidebar-brand-icon rotate-n-0">
-           <i class="fas fa-user"></i>
+           <i class="fas fa-folder-open"></i>
         </div>
-        
-        <div class="sidebar-brand-text mx-3">Patient Record Management</div>
+        <div class="sidebar-brand-text mx-3">Patient Records</div>
       </a>
    
+
+ <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item active">
+         <!-- Nav Item - Tables -->
+        <a class="nav-link collapsed " href="<?php echo base_url(); ?>standardusercontrol/outpatientview">
+          <i class="fas fa-fw fa-table "></i>
+          <span>Patient Table</span></a>
+      </li>
+
+
+
+
+    
+ 
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
 
     </ul>
-    <!-- End of sidebar -->
+    <!-- End of Sidebar -->
 
-     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="main d-flex flex-column">
 
       <!-- Main Content -->
-      <div id="content">
-
+      <div id="content"> 
+ 
       <?php $this->load->view($topbar); ?>
-
+      
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-   
-       <?php $this->load->view($recoverview); ?>
+       
 
-        
+       <?php $this->load->view($main_view); ?>
+            
         </div>
        
        </div>
       <!-- End of Main Content -->
-  <br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Patient Record Management 2019</span>
+            <span>Copyright &copy; Patient Record Management System 2019</span>
           </div>
         </div>
       </footer>
@@ -116,13 +181,14 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="<?php echo base_url(); ?>usercontrol/logout">Logout</a>
+          <a class="btn btn-success" href="<?php echo base_url(); ?>standardusercontrol/logout">Logout</a>
         </div>
       </div>
     </div>
   </div>
 
  <?php endif; ?>
+
 
 
  <!-- Bootstrap core JavaScript-->
@@ -141,6 +207,15 @@
 
   <!-- Page level custom scripts -->
   <script src="<?php echo base_url(); ?>assets/js/demo/datatables-demo.js"></script>
+
+  
+<!-- jQuery library -->
+<script src="<?php echo base_url(); ?>assets/printarea/jquery-print-plugin-master/lib/jquery.printThis.js"></script>
+ 
+
+
 </body>
 
 </html>
+
+

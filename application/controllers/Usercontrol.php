@@ -94,7 +94,7 @@ public function index(){ // get data of the user who is logged in
    	   $pass = $this->input->post('pass1');
       
         $login_id = $this->User_model->login_user($user, $pass);
-
+        
        if($login_id){
 
        	  $data = array(

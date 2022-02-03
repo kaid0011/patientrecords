@@ -112,7 +112,7 @@
    </div>
 
    <div class="d-flex justify-content-end">
-      <button style="" type="submit" class="btn btn-success btn-icon-split" name="submit">
+      <button type="submit" class="btn btn-success btn-icon-split" name="submit">
          <span class="icon text-white-100">
             <i class="fas fa-arrow-right"></i>
             Save

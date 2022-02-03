@@ -48,7 +48,7 @@
        </div>
        <select name="a_position" class="form-control">
          <option value="Doctor" <?php echo set_select('a_position', 'Doctor', (!empty($data) && $data == "Doctor" ? TRUE : FALSE)); ?>>Doctor</option>
-         <option value="Nurse Receptionist" <?php echo set_select('a_position', 'Nurse Receptionist', (!empty($data) && $data == "Nurse Receptionist" ? TRUE : FALSE)); ?>>Doctor</option>
+         <option value="Nurse Receptionist" <?php echo set_select('a_position', 'Nurse Receptionist', (!empty($data) && $data == "Nurse Receptionist" ? TRUE : FALSE)); ?>>Nurse Receptionist</option>
        </select>
        <div class="text-danger text-center"><?php echo form_error('a_position'); ?></div>
      </div>
